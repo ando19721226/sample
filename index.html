@@ -256,7 +256,7 @@
 		</ons-list>
 
 		<ons-fab position="bottom right">
-			<ons-icon icon="md-plus"></ons-icon>
+			<ons-icon icon="md-plus" id="goto-upload-button"></ons-icon>
 		</ons-fab>
 
 	</ons-page>
@@ -318,14 +318,23 @@
 	</ons-page>
 </template>
 
-<template id="tab2.html">
-	<ons-page id="Tab2">
-		<ons-toolbar>
-			<div class="center">Tab 2</div>
-		</ons-toolbar>
-		<p style="text-align: center;">
-		This is the second page.
-		</p>
+<template id="photo-upload.html">
+	<ons-page id="photo-upload">
+			<ons-toolbar>
+				<div class="center">アップロード</div>
+				<div class="right" id="close"><ons-toolbar-button>キャンセル</ons-toolbar-button></div>
+			</ons-toolbar>
+			<div style="margin-left: 10px">
+				<p>
+				<input type="file">
+				</p>
+				<p>
+					<ons-input modifier="underbar" placeholder="タイトル" float></ons-input>
+				</p>
+				<p>
+					<ons-button>アップロード</ons-button>
+				</p>
+			</div>
 	</ons-page>
 </template>
 
@@ -340,9 +349,16 @@ document.addEventListener('init', function(event) {
 		page.querySelector('#photos-button').onclick = function () {
 			document.querySelector('#myNavigator').pushPage('photo.html');
 		}
+		page.querySelector('#goto-upload-button').onclick = function () {
+			document.querySelector('#myNavigator').pushPage('photo-upload.html', {animation:"lift"});
+		}
 	} else if (page.id === 'password') {
 		page.querySelector('#password-button').onclick = function () {
 			document.querySelector('#myNavigator').replacePage('top-menu.html');
+		}
+	} else if (page.id === 'photo-upload') {
+		page.querySelector('#close').onclick = function () {
+			document.querySelector('#myNavigator').popPage();
 		}
 	}
 });
