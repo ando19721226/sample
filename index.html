@@ -98,20 +98,30 @@
 <body>
 
 
-<ons-navigator swipeable id="myNavigator" page="top-menu.html"></ons-navigator>
+<ons-navigator swipeable id="myNavigator" page="password.html"></ons-navigator>
 
-<!--
-<ons-page>
-
-	<ons-tabbar swipeable position="auto">
-		<ons-tab page="tab1.html" label="写真" icon="md-camera" badge="7" active>
-		</ons-tab>
-		<ons-tab page="tab2.html" label="会話" icon="md-comments" badge="6">
-		</ons-tab>
-	</ons-tabbar>
-
-</ons-page>
--->
+<template id="password.html">
+	<ons-page id="password">
+		<ons-card>
+			<div class="title">
+				パスワードを登録してください
+			</div>
+			<div style="width:100%;text-align:center">
+				<img src="poppo.png">
+			</div>
+			<p>
+				始めてご利用になる前に、パスワードの登録が必要です。
+				このパスワードは、別のスマホなどでアクセスする際に必要になります。
+			</p>
+			<div class="content">
+				<div><input type="text" class="text-input text-input--underbar" placeholder="任意のパスワード" value=""></div>
+				<p>
+				<ons-button id="password-button">登録</ons-button>
+				</p>
+			</div>
+		</ons-card>
+	</ons-page>
+</template>
 
 <template id="top-menu.html">
 	<ons-page id="top-menu">
@@ -122,14 +132,14 @@
 		<ons-card id="push-button">
 		    <img src="sinro.png" style="width: 100%">
 		    <div class="title" style="text-align:center">
-		      新郎関係者さま
+		      新郎の関係者さま
 		    </div>
 		</ons-card>
 
 		<ons-card id="push-button">
 		    <img src="sinpu.png" style="width: 100%">
 		    <div class="title" style="text-align:center">
-		      新婦関係者さま
+		      新婦の関係者さま
 		    </div>
 		</ons-card>
 
@@ -177,6 +187,70 @@
 				</div>
 				<div class="center">
 					<span class="list-item__title">学生時代③</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
+				</div>
+			</ons-list-item>
+			<ons-list-item modifier="chevron" tappable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+				</div>
+				<div class="center">
+					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
+				</div>
+			</ons-list-item>
+			<ons-list-item modifier="chevron" tappable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+				</div>
+				<div class="center">
+					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
+				</div>
+			</ons-list-item>
+			<ons-list-item modifier="chevron" tappable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+				</div>
+				<div class="center">
+					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
+				</div>
+			</ons-list-item>
+			<ons-list-item modifier="chevron" tappable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+				</div>
+				<div class="center">
+					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
+				</div>
+			</ons-list-item>
+			<ons-list-item modifier="chevron" tappable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+				</div>
+				<div class="center">
+					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
+				</div>
+			</ons-list-item>
+			<ons-list-item modifier="chevron" tappable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+				</div>
+				<div class="center">
+					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
+				</div>
+			</ons-list-item>
+			<ons-list-item modifier="chevron" tappable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+				</div>
+				<div class="center">
+					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
+				</div>
+			</ons-list-item>
+			<ons-list-item modifier="chevron" tappable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+				</div>
+				<div class="center">
+					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
 				</div>
 			</ons-list-item>
 		</ons-list>
@@ -265,6 +339,10 @@ document.addEventListener('init', function(event) {
 	} else if (page.id === 'photos') {
 		page.querySelector('#photos-button').onclick = function () {
 			document.querySelector('#myNavigator').pushPage('photo.html');
+		}
+	} else if (page.id === 'password') {
+		page.querySelector('#password-button').onclick = function () {
+			document.querySelector('#myNavigator').replacePage('top-menu.html');
 		}
 	}
 });
