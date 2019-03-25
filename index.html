@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+	<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+	<style>
+/*以下、①背景色など*/
+.line-bc {
+  padding: 20px 10px;
+  max-width: 450px;
+  margin: 15px auto;
+  text-align: right;
+  font-size: 14px;
+  background: #7da4cd;
+
+}
+
+/*以下、②左側のコメント*/
+.balloon6 {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.balloon6 .faceicon {
+  float: left;
+  margin-right: -50px;
+/*  width: 40px;*/
+  color: #edf1ee;
+}
+
+.balloon6 .faceicon img{
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+.balloon6 .chatting {
+  width: 100%;
+  text-align: left;
+}
+.says {
+  display: inline-block;
+  position: relative; 
+  margin: 0 0 0 50px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #edf1ee;
+}
+
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px; 
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #edf1ee;
+  -ms-transform: rotate(35deg);
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+.says p {
+  margin: 0;
+  padding: 0;
+}
+
+/*以下、③右側の緑コメント*/
+.mycomment {
+  margin: 10px 0;
+}
+.mycomment p {
+  display: inline-block;
+  position: relative; 
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 15px:
+}
+
+.mycomment p:after {
+  content: "";
+  position: absolute;
+  top: 3px; 
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #30e852;
+  -ms-transform: rotate(-35deg);
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+	</style>
+</head>
+<body>
+
+
+<ons-navigator swipeable id="myNavigator" page="top-menu.html"></ons-navigator>
+
+<!--
+<ons-page>
+
+	<ons-tabbar swipeable position="auto">
+		<ons-tab page="tab1.html" label="写真" icon="md-camera" badge="7" active>
+		</ons-tab>
+		<ons-tab page="tab2.html" label="会話" icon="md-comments" badge="6">
+		</ons-tab>
+	</ons-tabbar>
+
+</ons-page>
+-->
+
+<template id="top-menu.html">
+	<ons-page id="top-menu">
+		<ons-toolbar>
+			<div class="center">トップメニュー</div>
+		</ons-toolbar>
+
+		<ons-card id="push-button">
+		    <img src="sinro.png" style="width: 100%">
+		    <div class="title" style="text-align:center">
+		      新郎関係者さま
+		    </div>
+		</ons-card>
+
+		<ons-card id="push-button">
+		    <img src="sinpu.png" style="width: 100%">
+		    <div class="title" style="text-align:center">
+		      新婦関係者さま
+		    </div>
+		</ons-card>
+
+	</ons-page>
+</template>
+
+<template id="photos.html">
+	<ons-page id="photos">
+		<ons-toolbar>
+			<div class="left"><ons-back-button></ons-back-button></div>
+			<div class="center">フォト一覧</div>
+		</ons-toolbar>
+
+		<ons-list>
+			<ons-list-item modifier="chevron" tappable id="photos-button">
+				<div class="left">
+					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+				</div>
+				<div class="center">
+					<span class="list-item__title">株式会社○○に入社</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
+				</div>
+				<div class="right">
+					<span class="notification">+3</span>
+				</div>
+			</ons-list-item>
+			<ons-list-item modifier="chevron" tappable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+				</div>
+				<div class="center">
+					<span class="list-item__title">学生時代①</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
+				</div>
+			</ons-list-item>
+			<ons-list-item modifier="chevron" tappable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+				</div>
+				<div class="center">
+					<span class="list-item__title">学生時代②</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
+				</div>
+			</ons-list-item>
+			<ons-list-item modifier="chevron" tappable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+				</div>
+				<div class="center">
+					<span class="list-item__title">学生時代③</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
+				</div>
+			</ons-list-item>
+		</ons-list>
+
+		<ons-fab position="bottom right">
+			<ons-icon icon="md-plus"></ons-icon>
+		</ons-fab>
+
+	</ons-page>
+</template>
+
+<template id="photo.html">
+	<ons-page id="photo">
+		<div class="background" style="background-color: #7da4cd;"></div>
+		<ons-toolbar>
+			<div class="left"><ons-back-button></ons-back-button></div>
+			<div class="center">フォト</div>
+		</ons-toolbar>
+
+		<ons-card>
+		    <img src="https://www.pakutaso.com/shared/img/thumb/SYU0I9A6789_1_TP_V.jpg" style="width: 100%">
+		    <div class="title">
+		      株式会社○○に入社
+		    </div>
+			<textarea class="textarea" rows="3" placeholder="コメントをどうぞ" style="width:100%;"></textarea>
+			<div style="text-align:right">
+				<ons-button style="margin-top:10px;width:50px;text-align:center;"><ons-icon icon="md-check"></ons-icon></ons-button>
+			</div>
+		</ons-card>
+
+		<div class="line-bc"><!--①LINE会話全体を囲う-->
+
+			<!--②左コメント始-->
+			<div class="balloon6">
+				<div class="faceicon">
+				T.A
+				</div>
+				<div class="chatting">
+					<div class="says">
+						<p>左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文</p>
+					</div>
+				</div>
+			</div>
+			<div class="balloon6">
+				<div class="faceicon">
+				F.K
+				</div>
+				<div class="chatting">
+					<div class="says">
+						<p>左ふきだし文</p>
+					</div>
+				</div>
+			</div>
+			<!--②/左コメント終-->
+
+			<!--③右コメント始-->
+			<div class="mycomment">
+				<p>右ふきだし文</p>
+			</div>
+			<!--/③右コメント終-->
+
+		</div><!--/①LINE会話終了-->
+
+
+	</ons-page>
+</template>
+
+<template id="tab2.html">
+	<ons-page id="Tab2">
+		<ons-toolbar>
+			<div class="center">Tab 2</div>
+		</ons-toolbar>
+		<p style="text-align: center;">
+		This is the second page.
+		</p>
+	</ons-page>
+</template>
+
+<script>
+document.addEventListener('init', function(event) {
+	var page = event.target;
+	if (page.id === 'top-menu') {
+		page.querySelector('#push-button').onclick = function() {
+			document.querySelector('#myNavigator').pushPage('photos.html', {data: {title: 'Page 2'}});
+		};
+	} else if (page.id === 'photos') {
+		page.querySelector('#photos-button').onclick = function () {
+			document.querySelector('#myNavigator').pushPage('photo.html');
+		}
+	}
+});
+</script>
+
+</body>
+</html>
