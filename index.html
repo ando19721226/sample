@@ -4,364 +4,431 @@
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
 	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+	<link rel="stylesheet" href="line.css" type="text/css">
 	<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
-	<style>
-/*以下、①背景色など*/
-.line-bc {
-  padding: 20px 10px;
-  max-width: 450px;
-  margin: 15px auto;
-  text-align: right;
-  font-size: 14px;
-  background: #7da4cd;
-
-}
-
-/*以下、②左側のコメント*/
-.balloon6 {
-  width: 100%;
-  margin: 10px 0;
-  overflow: hidden;
-}
-
-.balloon6 .faceicon {
-  float: left;
-  margin-right: -50px;
-/*  width: 40px;*/
-  color: #edf1ee;
-}
-
-.balloon6 .faceicon img{
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-}
-.balloon6 .chatting {
-  width: 100%;
-  text-align: left;
-}
-.says {
-  display: inline-block;
-  position: relative; 
-  margin: 0 0 0 50px;
-  padding: 10px;
-  max-width: 250px;
-  border-radius: 12px;
-  background: #edf1ee;
-}
-
-.says:after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 3px; 
-  left: -19px;
-  border: 8px solid transparent;
-  border-right: 18px solid #edf1ee;
-  -ms-transform: rotate(35deg);
-  -webkit-transform: rotate(35deg);
-  transform: rotate(35deg);
-}
-.says p {
-  margin: 0;
-  padding: 0;
-}
-
-/*以下、③右側の緑コメント*/
-.mycomment {
-  margin: 10px 0;
-}
-.mycomment p {
-  display: inline-block;
-  position: relative; 
-  margin: 0 10px 0 0;
-  padding: 8px;
-  max-width: 250px;
-  border-radius: 12px;
-  background: #30e852;
-  font-size: 15px:
-}
-
-.mycomment p:after {
-  content: "";
-  position: absolute;
-  top: 3px; 
-  right: -19px;
-  border: 8px solid transparent;
-  border-left: 18px solid #30e852;
-  -ms-transform: rotate(-35deg);
-  -webkit-transform: rotate(-35deg);
-  transform: rotate(-35deg);
-}
-	</style>
 </head>
 <body>
 
 
-<ons-navigator swipeable id="myNavigator" page="password.html"></ons-navigator>
+<ons-navigator swipeable id="nav" page="top.html"></ons-navigator>
 
-<template id="password.html">
-	<ons-page id="password">
-		<ons-card>
-			<div class="title">
-				パスワードを登録してください
-			</div>
-			<div style="width:100%;text-align:center">
-				<img src="poppo.png">
-			</div>
-			<p>
-				始めてご利用になる前に、パスワードの登録が必要です。
-				このパスワードは、別のスマホなどでアクセスする際に必要になります。
-			</p>
-			<div class="content">
-				<div><input type="text" class="text-input text-input--underbar" placeholder="任意のパスワード" value=""></div>
+<template id="top.html">
+	<ons-page>
+
+		<ons-page id="password">
+			<ons-card>
+				<div class="title">
+					パスワードを登録してください
+				</div>
+				<div style="width:100%;text-align:center">
+					<img src="poppo.png">
+				</div>
 				<p>
-				<ons-button id="password-button">登録</ons-button>
+					始めてご利用になる前に、パスワードの登録が必要です。
+					このパスワードは、別のスマホなどでアクセスする際に必要になります。
 				</p>
+				<div class="content">
+					<div><input type="text" class="text-input text-input--underbar" placeholder="password" value=""></div>
+					<p>
+					<ons-button id="b">このパスワードで登録</ons-button>
+					</p>
+				</div>
+			</ons-card>
+		</ons-page>
+
+		<script>
+			ons.getScriptPage().onInit = function () {
+				this.querySelector("#b").onclick = function () {
+					onsNav.replacePage("talk-rooms.html");
+				};
+			};
+		</script>
+	</ons-page>
+</template>
+
+<template id="talk-rooms.html">
+	<ons-page>
+
+		<div class="background" style="background-color: #f8a5c2;"></div>
+
+		<ons-toolbar>
+			<div class="center">トークルーム一覧</div>
+			<div class="right"><ons-toolbar-button id="settings">設定</ons-toolbar-button></div>
+		</ons-toolbar>
+		<ons-card>
+			<div class="content">
+				新郎新婦の楽しいエピソードや写真を投稿して、ゲストの皆様同士で楽しくお話しませんか？
+				どなたでもお気軽にご参加ください！
 			</div>
 		</ons-card>
+		<ons-list>
+			<ons-list-header>ゲストの皆様同士でトーク</ons-list-header>
+			<div id="ippan">
+				<ons-list-item modifier="chevron" tappable>
+					<div class="left">
+						<img class="list-item__thumbnail" src="sinro.png">
+					</div>
+					<span class="list-item__title">彼の選挙活動の思い出</span>
+					<span class="list-item__subtitle">コメント数：3</span>
+				</ons-list-item>
+				<ons-list-item modifier="chevron" tappable>
+					<div class="left">
+						<img class="list-item__thumbnail" src="sinpu.png">
+					</div>
+					<span class="list-item__title">彼女の学生時代</span>
+					<span class="list-item__subtitle">コメント数：3</span>
+				</ons-list-item>
+				<ons-list-item modifier="chevron" tappable>
+					<div class="left">
+						<img class="list-item__thumbnail" src="sinrosinpu.png">
+					</div>
+					<span class="list-item__title">２次会のご案内</span>
+					<span class="list-item__subtitle">コメント数：3</span>
+				</ons-list-item>
+			</div>
+			<ons-list-header>プランナーとのトーク</ons-list-header>
+			<div id="planner">
+				<ons-list-item modifier="chevron" tappable>
+					<div class="left">
+						<img class="list-item__thumbnail" src="planner.png">
+					</div>
+					<span class="list-item__title">なんでもご相談ください</span>
+					<span class="list-item__subtitle">コメント数：6</span>
+				</ons-list-item>
+			</div>
+		</ons-list>
+
+		<ons-fab position="bottom right" ripple="true" id="open-new-room">
+			<ons-icon icon="md-plus"></ons-icon>
+		</ons-fab>
+
+		<script>
+			ons.getScriptPage().onInit = function () {
+				this.querySelector("#open-new-room").onclick = function () {
+					onsNav.pushPage("new-room.html", {animation: "lift"});
+				};
+				this.querySelector("#ippan").onclick = function () {
+					onsNav.pushPage("talk-room.html");
+				};
+				this.querySelector("#planner").onclick = function () {
+					onsNav.pushPage("planner-talk-room.html");
+				};
+				this.querySelector("#settings").onclick = function () {
+					onsNav.pushPage("settings.html", {animation: "lift"});
+				};
+			};
+		</script>
 	</ons-page>
 </template>
 
-<template id="top-menu.html">
-	<ons-page id="top-menu">
+<template id="new-room.html">
+	<ons-page>
+
 		<ons-toolbar>
-			<div class="center">トップメニュー</div>
-		</ons-toolbar>
-
-		<ons-card id="push-button">
-		    <img src="sinro.png" style="width: 100%">
-		    <div class="title" style="text-align:center">
-		      新郎の関係者さま
-		    </div>
-		</ons-card>
-
-		<ons-card id="push-button">
-		    <img src="sinpu.png" style="width: 100%">
-		    <div class="title" style="text-align:center">
-		      新婦の関係者さま
-		    </div>
-		</ons-card>
-
-	</ons-page>
-</template>
-
-<template id="photos.html">
-	<ons-page id="photos">
-		<ons-toolbar>
-			<div class="left"><ons-back-button></ons-back-button></div>
-			<div class="center">フォト一覧</div>
+			<div class="left"><ons-toolbar-button id="cancel">キャンセル</ons-toolbar-button></div>
+			<div class="center">トークルームを作る</div>
+			<div class="right"><ons-toolbar-button id="ok">作成</ons-toolbar-button></div>
 		</ons-toolbar>
 
 		<ons-list>
-			<ons-list-item modifier="chevron" tappable id="photos-button">
-				<div class="left">
-					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-				</div>
-				<div class="center">
-					<span class="list-item__title">株式会社○○に入社</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
-				</div>
-				<div class="right">
-					<span class="notification">+3</span>
-				</div>
+
+			<ons-list-header>２人のどちらに関する話題？</ons-list-header>
+
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="color" input-id="radio-1" checked></ons-radio>
+				</label>
+				<label for="radio-1" class="center">
+					<img src="sinro.png" style="height:30px;margin-right:10px;"> 新郎に関する話題
+				</label>
 			</ons-list-item>
-			<ons-list-item modifier="chevron" tappable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-				</div>
-				<div class="center">
-					<span class="list-item__title">学生時代①</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
-				</div>
+
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="color" input-id="radio-2"></ons-radio>
+				</label>
+				<label for="radio-2" class="center">
+					<img src="sinpu.png" style="height:30px;margin-right:10px;"> 新婦に関する話題
+				</label>
 			</ons-list-item>
-			<ons-list-item modifier="chevron" tappable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-				</div>
-				<div class="center">
-					<span class="list-item__title">学生時代②</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
-				</div>
+
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="color" input-id="radio-3"></ons-radio>
+				</label>
+				<label for="radio-3" class="center">
+					<img src="sinrosinpu.png" style="height:30px;margin-right:10px;"> ２人に共通する話題
+				</label>
 			</ons-list-item>
-			<ons-list-item modifier="chevron" tappable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-				</div>
-				<div class="center">
-					<span class="list-item__title">学生時代③</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
-				</div>
+
+			<ons-list-header>トークルームのタイトル</ons-list-header>
+			<ons-list-item>
+				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="20文字まで入力できます。" value="">
 			</ons-list-item>
-			<ons-list-item modifier="chevron" tappable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-				</div>
-				<div class="center">
-					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
-				</div>
-			</ons-list-item>
-			<ons-list-item modifier="chevron" tappable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-				</div>
-				<div class="center">
-					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
-				</div>
-			</ons-list-item>
-			<ons-list-item modifier="chevron" tappable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-				</div>
-				<div class="center">
-					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
-				</div>
-			</ons-list-item>
-			<ons-list-item modifier="chevron" tappable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-				</div>
-				<div class="center">
-					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
-				</div>
-			</ons-list-item>
-			<ons-list-item modifier="chevron" tappable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-				</div>
-				<div class="center">
-					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
-				</div>
-			</ons-list-item>
-			<ons-list-item modifier="chevron" tappable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-				</div>
-				<div class="center">
-					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
-				</div>
-			</ons-list-item>
-			<ons-list-item modifier="chevron" tappable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-				</div>
-				<div class="center">
-					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
-				</div>
-			</ons-list-item>
-			<ons-list-item modifier="chevron" tappable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-				</div>
-				<div class="center">
-					<span class="list-item__title">ダミー</span><span class="list-item__subtitle">2019.04.01 T.Aさん投稿</span>
-				</div>
-			</ons-list-item>
+
 		</ons-list>
 
-		<ons-fab position="bottom right">
-			<ons-icon icon="md-plus" id="goto-upload-button"></ons-icon>
-		</ons-fab>
+		<script>
+			ons.getScriptPage().onInit = function () {
+				this.querySelector("#ok").onclick = function () {
+					ons.notification.toast('ありがとうございます！', { timeout: 1000, animation: 'fall' })
+					onsNav.popPage();
+				};
+				this.querySelector("#cancel").onclick = function () {
+					onsNav.popPage();
+				};
+			};
+		</script>
+	</ons-page>
+</template>
+
+<template id="talk-room.html">
+	<ons-page>
+
+		<div class="background" style="background-color: #7da4cd;"></div>
+
+		<ons-toolbar>
+			<div class="left"><ons-back-button>戻る</ons-back-button></div>
+			<div class="center">トークルーム</div>
+		</ons-toolbar>
+
+		<div style="padding-bottom: 150px;">
+
+			<div class="line__title">
+				彼の選挙活動の思い出
+			</div>
+
+			<div class="line__container">
+
+				<div class="line__contents">
+
+					<!-- 相手の吹き出し -->
+					<div class="line__left">
+						<figure>
+							<img src="guest1.png" />
+						</figure>
+						<div class="line__left-text">
+							<div class="name">田中 一郎</div>
+							<div class="text">彼が選挙活動で街頭演説をしている時の写真です。</div>
+						</div>
+					</div>
+
+					<!-- 相手のスタンプ -->
+					<div class="line__left">
+						<div class="stamp"><img src="OOK86_maikusupichi_TP_V.jpg" /></div>
+					</div>
+
+					<!-- 相手の吹き出し -->
+					<div class="line__left">
+						<figure>
+							<img src="guest2.png" />
+						</figure>
+						<div class="line__left-text">
+							<div class="name">山本 洋子</div>
+							<div class="text">かっこいい！</div>
+						</div>
+					</div>
+
+					<!-- 自分の吹き出し -->
+					<div class="line__right">
+						<div class="text">みごと当選しましたね。</div>
+						<span class="date">既読<br>0:30</span>
+					</div>
+
+				</div>
+				<!--　▲会話エリア ここまで -->
+			</div>
+			<!--　▲LINE風ここまで -->
+		</div>
+
+		<ons-bottom-toolbar style="height:140px">
+			<div style="padding:10px">
+				<textarea class="textarea" rows="3" placeholder="100文字まで入力できます" style="width:100%;"></textarea>
+
+				<ons-row>
+					<ons-col>
+						<div style="margin-top:10px;">
+							<input type="file">
+						</div>
+					</ons-col>
+					<ons-col>
+						<div style="margin-top:10px;text-align:right">
+							<ons-button onclick="hideDialog('talk-dialog')">送信</ons-button>
+						</div>
+					</ons-col>
+				</ons-row>
+			</div>
+		</ons-bottom-toolbar>
+
+		<script>
+		</script>
 
 	</ons-page>
 </template>
 
-<template id="photo.html">
-	<ons-page id="photo">
+<template id="planner-talk-room.html">
+	<ons-page>
+
 		<div class="background" style="background-color: #7da4cd;"></div>
+
 		<ons-toolbar>
-			<div class="left"><ons-back-button></ons-back-button></div>
-			<div class="center">フォト</div>
+			<div class="left"><ons-back-button>戻る</ons-back-button></div>
+			<div class="center">プランナーとのトーク</div>
 		</ons-toolbar>
 
 		<ons-card>
-		    <img src="https://www.pakutaso.com/shared/img/thumb/SYU0I9A6789_1_TP_V.jpg" style="width: 100%">
-		    <div class="title">
-		      株式会社○○に入社
-		    </div>
-			<textarea class="textarea" rows="3" placeholder="コメントをどうぞ" style="width:100%;"></textarea>
-			<div style="text-align:right">
-				<ons-button style="margin-top:10px;width:50px;text-align:center;"><ons-icon icon="md-check"></ons-icon></ons-button>
+			<div class="content">
+				<ons-row>
+					<ons-col width="120px">
+						<img src="planner2.png" style="width:100px">
+					</ons-col>
+					<ons-col>
+						ウェディングプランナーの鈴木です。なんでもお気軽にご相談ください。
+					</ons-col>
+				</ons-row>
 			</div>
 		</ons-card>
 
-		<div class="line-bc"><!--①LINE会話全体を囲う-->
+		<div style="padding-bottom: 150px;">
 
-			<!--②左コメント始-->
-			<div class="balloon6">
-				<div class="faceicon">
-				T.A
-				</div>
-				<div class="chatting">
-					<div class="says">
-						<p>左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文左ふきだし文</p>
+			<div class="line__container">
+
+				<div class="line__contents">
+
+					<div class="line__left">
+						<figure>
+							<img src="planner2.png" />
+						</figure>
+						<div class="line__left-text">
+							<div class="name">鈴木（プランナー）</div>
+							<div class="text">初めまして！</div>
+						</div>
 					</div>
-				</div>
-			</div>
-			<div class="balloon6">
-				<div class="faceicon">
-				F.K
-				</div>
-				<div class="chatting">
-					<div class="says">
-						<p>左ふきだし文</p>
+
+					<div class="line__right">
+						<div class="text">子供を連れて行かなければならないのですが、近くに託児所はありますか？</div>
+						<span class="date">既読<br>13:30</span>
 					</div>
+
+					<div class="line__left">
+						<figure>
+							<img src="planner2.png" />
+						</figure>
+						<div class="line__left-text">
+							<div class="name">鈴木（プランナー）</div>
+							<div class="text">式場の中にベビールームがございます。事前にご予約が必要になりますので、お手数ですがお電話いただいてよろしいでしょうか。</div>
+						</div>
+					</div>
+
+					<div class="line__right">
+						<div class="text">ありがとうございます。電話してみます。</div>
+						<span class="date">既読<br>13:35</span>
+					</div>
+
+					<div class="line__left">
+						<figure>
+							<img src="guest2.png" />
+						</figure>
+						<div class="line__left-text">
+							<div class="name">さちこ</div>
+							<div class="text">授乳室もありますか？</div>
+						</div>
+					</div>
+
+					<div class="line__left">
+						<figure>
+							<img src="planner2.png" />
+						</figure>
+						<div class="line__left-text">
+							<div class="name">鈴木（プランナー）</div>
+							<div class="text">授乳室もございます。こちらはもちろんご予約は必要ありません。</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
-			<!--②/左コメント終-->
+		</div>
 
-			<!--③右コメント始-->
-			<div class="mycomment">
-				<p>右ふきだし文</p>
+		<ons-bottom-toolbar style="height:140px">
+			<div style="padding:10px">
+
+				<textarea class="textarea" rows="3" placeholder="100文字まで入力できます" style="width:100%;"></textarea>
+
+				<div style="margin-top:10px;text-align:right">
+					<ons-button onclick="hideDialog('talk-dialog')">送信</ons-button>
+				</div>
+
 			</div>
-			<!--/③右コメント終-->
-
-		</div><!--/①LINE会話終了-->
-
+		</ons-bottom-toolbar>
 
 	</ons-page>
 </template>
 
-<template id="photo-upload.html">
-	<ons-page id="photo-upload">
-			<ons-toolbar>
-				<div class="center">アップロード</div>
-				<div class="right" id="close"><ons-toolbar-button>キャンセル</ons-toolbar-button></div>
-			</ons-toolbar>
-			<div style="margin-left: 10px">
-				<p>
-				<input type="file">
-				</p>
-				<p>
-					<ons-input modifier="underbar" placeholder="タイトル" float></ons-input>
-				</p>
-				<p>
-					<ons-button>アップロード</ons-button>
-				</p>
-			</div>
+<template id="settings.html">
+	<ons-page>
+		<ons-toolbar>
+			<div class="left"><ons-toolbar-button id="cancel">キャンセル</ons-toolbar-button></div>
+			<div class="center">設定</div>
+			<div class="right"><ons-toolbar-button id="ok">保存</ons-toolbar-button></div>
+		</ons-toolbar>
+
+		<ons-list>
+
+			<ons-list-header>お名前の変更</ons-list-header>
+			<ons-list-item>
+				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="お名前" value="山田 太郎">
+			</ons-list-item>
+
+			<ons-list-header>新しいパスワード</ons-list-header>
+			<ons-list-item>
+				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="パスワード" value="">
+			</ons-list-item>
+
+			<ons-list-header>顔アイコンの変更</ons-list-header>
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="color" input-id="radio-1" checked></ons-radio>
+				</label>
+				<label for="radio-1" class="center">
+					<img src="guest1.png" style="height:30px">
+				</label>
+			</ons-list-item>
+
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="color" input-id="radio-2"></ons-radio>
+				</label>
+				<label for="radio-2" class="center">
+					<img src="guest2.png" style="height:30px">
+				</label>
+			</ons-list-item>
+
+		</ons-list>
+
+		<script>
+			ons.getScriptPage().onInit = function () {
+				this.querySelector("#ok").onclick = function () {
+					onsNav.popPage();
+				};
+				this.querySelector("#cancel").onclick = function () {
+					onsNav.popPage();
+				};
+			};
+		</script>
+	</ons-page>
+</template>
+
+<template id="xxxx.html">
+	<ons-page>
+		<ons-toolbar>
+			<div class="left"><ons-back-button></ons-back-button></div>
+			<div class="center">TEST</div>
+		</ons-toolbar>
 	</ons-page>
 </template>
 
 <script>
-document.addEventListener('init', function(event) {
-	var page = event.target;
-	if (page.id === 'top-menu') {
-		page.querySelector('#push-button').onclick = function() {
-			document.querySelector('#myNavigator').pushPage('photos.html', {data: {title: 'Page 2'}});
-		};
-	} else if (page.id === 'photos') {
-		page.querySelector('#photos-button').onclick = function () {
-			document.querySelector('#myNavigator').pushPage('photo.html');
-		}
-		page.querySelector('#goto-upload-button').onclick = function () {
-			document.querySelector('#myNavigator').pushPage('photo-upload.html', {animation:"lift"});
-		}
-	} else if (page.id === 'password') {
-		page.querySelector('#password-button').onclick = function () {
-			document.querySelector('#myNavigator').replacePage('top-menu.html');
-		}
-	} else if (page.id === 'photo-upload') {
-		page.querySelector('#close').onclick = function () {
-			document.querySelector('#myNavigator').popPage();
-		}
-	}
-});
+	var onsNav = document.querySelector("#nav");
 </script>
 
 </body>
