@@ -2,7 +2,11 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>sample</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
 	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
 	<link rel="stylesheet" href="line.css" type="text/css">
@@ -340,7 +344,7 @@
 
 					<!-- 相手のスタンプ -->
 					<div class="line__left">
-						<div class="stamp"><img src="OOK86_maikusupichi_TP_V.jpg" /></div>
+						<div class="stamp" id="picture"><img src="OOK86_maikusupichi_TP_V.jpg" /></div>
 					</div>
 
 					<!-- 相手の吹き出し -->
@@ -386,8 +390,23 @@
 		</ons-bottom-toolbar>
 
 		<script>
+			ons.getScriptPage().onInit = function () {
+				this.querySelector("#picture").onclick = function () {
+					onsNav.pushPage("picture.html");
+				};
+			};
 		</script>
 
+	</ons-page>
+</template>
+
+<template id="picture.html">
+	<ons-page>
+		<ons-toolbar>
+			<div class="left"><ons-back-button></ons-back-button></div>
+			<div class="center">写真</div>
+		</ons-toolbar>
+		<img src="OOK86_maikusupichi_TP_V.jpg" style="width:100%"/>
 	</ons-page>
 </template>
 
