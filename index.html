@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
 	<link rel="stylesheet" href="line.css" type="text/css">
 	<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
 </head>
 <body>
 
@@ -49,11 +50,13 @@
 
 <template id="talk-rooms.html">
 	<ons-page>
-
+		
+		<!--
 		<div class="background" style="background-color: #f8a5c2;"></div>
+		-->
 
 		<ons-toolbar>
-			<div class="center">トークルーム一覧</div>
+			<div class="center">メニュー</div>
 			<div class="right"><ons-toolbar-button id="settings">設定</ons-toolbar-button></div>
 		</ons-toolbar>
 		<ons-card>
@@ -63,7 +66,7 @@
 			</div>
 		</ons-card>
 		<ons-list>
-			<ons-list-header style="background:#e66767;color:#fff">ゲストの皆様同士でトーク</ons-list-header>
+			<ons-list-header style="background:#e66767;color:#fff">トークルーム</ons-list-header>
 			<div id="ippan">
 				<ons-list-item modifier="chevron" tappable>
 					<div class="left">
@@ -87,14 +90,23 @@
 					<span class="list-item__subtitle">コメント数：3</span>
 				</ons-list-item>
 			</div>
-			<ons-list-header style="background:#e66767;color:#fff">プランナーとのトーク</ons-list-header>
 			<div id="planner">
 				<ons-list-item modifier="chevron" tappable>
 					<div class="left">
 						<img class="list-item__thumbnail" src="planner.png">
 					</div>
-					<span class="list-item__title">なんでもご相談ください</span>
+					<span class="list-item__title">プランナーへのご相談</span>
 					<span class="list-item__subtitle">コメント数：6</span>
+				</ons-list-item>
+			</div>
+			<ons-list-header style="background:#e66767;color:#fff">アンケート</ons-list-header>
+			<div id="questionnaires">
+				<ons-list-item modifier="chevron" tappable>
+					<div class="left">
+						<img class="list-item__thumbnail" src="sinro.png">
+					</div>
+					<span class="list-item__title">あなたから見た新郎の血液型は？</span>
+					<span class="list-item__subtitle">回答数：6</span>
 				</ons-list-item>
 			</div>
 		</ons-list>
@@ -113,6 +125,9 @@
 				};
 				this.querySelector("#planner").onclick = function () {
 					onsNav.pushPage("planner-talk-room.html");
+				};
+				this.querySelector("#questionnaires").onclick = function () {
+					onsNav.pushPage("questionnaire.html");
 				};
 				this.querySelector("#settings").onclick = function () {
 					onsNav.pushPage("settings.html", {animation: "lift"});
@@ -274,10 +289,13 @@
 
 		<ons-toolbar>
 			<div class="left"><ons-back-button>戻る</ons-back-button></div>
-			<div class="center">プランナーとのトーク</div>
+			<div class="center">トークルーム</div>
 		</ons-toolbar>
 
 		<ons-card>
+			<div class="title">
+				プランナーへのご相談
+			</div>
 			<div class="content">
 				<ons-row>
 					<ons-col width="120px">
@@ -418,6 +436,105 @@
 		</script>
 	</ons-page>
 </template>
+
+
+<template id="questionnaire.html">
+	<ons-page>
+		<ons-toolbar>
+			<div class="left"><ons-back-button></ons-back-button></div>
+			<div class="center">アンケート</div>
+		</ons-toolbar>
+
+		<ons-card>
+			<canvas id="chart"></canvas>
+		</ons-card>
+
+		<ons-list>
+
+			<ons-list-header>お選びください</ons-list-header>
+
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="color" input-id="radio-1" checked></ons-radio>
+				</label>
+				<label for="radio-1" class="center">
+					Ａ型
+				</label>
+			</ons-list-item>
+
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="color" input-id="radio-2"></ons-radio>
+				</label>
+				<label for="radio-2" class="center">
+					Ｂ型
+				</label>
+			</ons-list-item>
+
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="color" input-id="radio-3"></ons-radio>
+				</label>
+				<label for="radio-3" class="center">
+					Ｏ型
+				</label>
+			</ons-list-item>
+
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="color" input-id="radio-4"></ons-radio>
+				</label>
+				<label for="radio-4" class="center">
+					ＡＢ型
+				</label>
+			</ons-list-item>
+
+		</ons-list>
+
+		<div style="margin:10px;text-align:right">
+			<ons-button id="ok">送信</ons-button>
+		</div>
+
+		<script>
+			var ctx = document.getElementById("chart");
+			var myPieChart = new Chart(ctx, {
+				type: 'pie',
+				data: {
+					labels: ["Ａ型", "Ｂ型", "Ｏ型", "ＡＢ型"],
+					datasets: [{
+						backgroundColor: [
+							"#FFC312",
+							"#12CBC4",
+							"#D980FA",
+							"#ED4C67"
+						],
+						data: [38, 31, 11, 10]
+					}]
+				},
+				options: {
+					title: {
+						display: true,
+						text: 'あなたから見た新郎の血液型は？',
+						fontSize: 18,
+						fontStyle: ""
+					},
+					legend: {
+						display: true,
+						position: "right"
+					}
+				}
+			});
+
+			ons.getScriptPage().onInit = function () {
+				this.querySelector("#ok").onclick = function () {
+					ons.notification.toast('ご回答ありがとうございました！', { timeout: 1000, animation: 'fall' })
+				};
+			};
+
+		</script>
+	</ons-page>
+</template>
+
 
 <template id="xxxx.html">
 	<ons-page>
