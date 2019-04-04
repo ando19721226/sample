@@ -21,157 +21,124 @@
 <template id="top.html">
 	<ons-page>
 
-		<ons-page id="password">
-			<ons-card>
-				<div class="title">
-					パスワードを登録してください
-				</div>
-				<div style="width:100%;text-align:center">
-					<img src="poppo.png">
-				</div>
-				<p>
-					始めてご利用になる前に、パスワードの登録が必要です。
-					このパスワードは、別のスマホなどでアクセスする際に必要になります。
-				</p>
-				<div class="content">
-					<div><input type="text" class="text-input text-input--underbar" placeholder="password" value=""></div>
-					<p>
-					<ons-button id="b" >このパスワードで登録</ons-button>
-					</p>
-				</div>
-			</ons-card>
-		</ons-page>
+		<!--
+		<div class="background" style="background-image:url('TSU92_syukuhuku_TP_V.jpg');background-size:contain;"></div>
+		!-->
+
+		<img src='decor-1854075_1280.jpg' style="width:100%"></img>
+
+		<ons-card>
+			<div class="title">
+				<strong>山田 太郎</strong> 様
+			</div>
+			<p>
+				　招待状からのアクセスありがとうございます！
+			</p>
+			<p>
+				　このWebサイトは、<strong>2020年12月31日</strong> に挙式予定の
+				<strong>豊洲太郎様</strong> と <strong>月島花子様</strong> の
+				披露宴にご参列されるゲストの皆様同士で、
+				披露宴をより楽しく盛り上げていただけるためのコミュニティー・スペースです。
+			</p>
+
+			<p>
+				　なお、ご利用になる前にパスワードを決めていただく必要があります。
+				このパスワードは、別のスマホからアクセスする際などに必要です。
+			</p>
+
+				<div><input type="text" class="text-input text-input--underbar" placeholder="任意のパスワード" value=""></div>
+
+		</ons-card>
+
+		<ons-fab ripple="true" position="right bottom" id="b">
+			<ons-icon icon="md-check"></ons-icon>
+		</ons-fab>
 
 		<script>
 			ons.getScriptPage().onInit = function () {
 				this.querySelector("#b").onclick = function () {
-					onsNav.replacePage("talk-rooms.html");
+					onsNav.replacePage("tabbar.html");
 				};
 			};
 		</script>
 	</ons-page>
 </template>
 
+<template id="tabbar.html">
+	<ons-page>
+		<ons-tabbar swipeable position="auto">
+			<ons-tab page="talk-rooms.html" label="エピソード" icon="fa-comments" badge="2">
+			</ons-tab>
+			<ons-tab page="questionnaires.html" label="アンケート" icon="fa-clipboard-list">
+			</ons-tab>
+			<ons-tab page="from-planner.html" label="ご案内" icon="fa-info-circle">
+			</ons-tab>
+		</ons-tabbar>
+	</ons-page>
+</template>
+
 <template id="talk-rooms.html">
 	<ons-page>
 		
-		<!--
-		<div class="background" style="background-color: #f8a5c2;"></div>
-		-->
+		<div class="background" style="background: linear-gradient(90deg, #ea8685 0%, #fff 100%);"></div>
 
 		<ons-toolbar>
-			<div class="center">メニュー</div>
+			<div class="center">エピソード</div>
 			<div class="right"><ons-toolbar-button id="settings">設定</ons-toolbar-button></div>
 		</ons-toolbar>
-		<ons-card>
-			<div class="content">
-				新郎新婦の楽しいエピソードや写真を投稿して、ゲストの皆様同士で楽しくお話しませんか？
-				どなたでもお気軽にご参加ください！
-			</div>
-		</ons-card>
+
+		<div style="position:relative">
+			<img src='CDS_weddings_TP_V.jpg' style="width:100%;vertical-align:bottom;">
+			<ons-fab ripple="true" id="something-new" style="position:absolute;bottom:-30px;right:20px;left:auto;top:auto;">
+				<ons-icon icon="md-plus"></ons-icon>
+			</ons-fab>
+		</div>
+
+		<div style="padding:20px 10px 10px 10px;background-color:#fff;">
+			<strong style="font-size:1.3em">Episode</strong>
+			<p>
+			新郎新婦の楽しいエピソードや写真を投稿して、ゲストの皆様同士で楽しくお話しませんか？
+			どなたでもお気軽にご参加ください！
+			</p>
+		</div>
+
 		<ons-list>
-			<ons-list-header style="background:#e66767;color:#fff">トークルーム</ons-list-header>
 			<div id="ippan">
 				<ons-list-item modifier="chevron" tappable>
 					<div class="left">
-						<img class="list-item__thumbnail" src="sinro.png">
+						<img class="list-item__thumbnail" src="sinro_img.png">
 					</div>
 					<span class="list-item__title">彼の選挙活動の思い出</span>
 					<span class="list-item__subtitle">コメント数：3</span>
+					<div class="right">
+						<span class="notification">+2</span>
+					</div>
 				</ons-list-item>
 				<ons-list-item modifier="chevron" tappable>
 					<div class="left">
-						<img class="list-item__thumbnail" src="sinpu.png">
+						<img class="list-item__thumbnail" src="sinpu_img.png">
 					</div>
 					<span class="list-item__title">彼女の学生時代</span>
 					<span class="list-item__subtitle">コメント数：3</span>
 				</ons-list-item>
 				<ons-list-item modifier="chevron" tappable>
 					<div class="left">
-						<img class="list-item__thumbnail" src="sinrosinpu.png">
+						<img class="list-item__thumbnail" src="sinro_img.png">
 					</div>
 					<span class="list-item__title">２次会のご案内</span>
 					<span class="list-item__subtitle">コメント数：3</span>
 				</ons-list-item>
 			</div>
 
-			<ons-list-header style="background:#e66767;color:#fff">アンケート</ons-list-header>
-			<div id="questionnaires">
-				<ons-list-item modifier="chevron" tappable>
-					<div class="left">
-						<img class="list-item__thumbnail" src="sinro.png">
-					</div>
-					<span class="list-item__title">あなたから見た新郎の血液型は？</span>
-					<span class="list-item__subtitle">回答数：6</span>
-				</ons-list-item>
-				<ons-list-item modifier="chevron" tappable>
-					<div class="left">
-						<img class="list-item__thumbnail" src="sinro.png">
-					</div>
-					<span class="list-item__title">新郎を動物に例えると？</span>
-					<span class="list-item__subtitle">回答数：1</span>
-				</ons-list-item>
-			</div>
-
-			<ons-list-header style="background:#e66767;color:#fff">プランナーからのご案内</ons-list-header>
-			<div id="guests">
-				<ons-list-item modifier="chevron"tappable>
-					<div class="left">
-						<img class="list-item__thumbnail" src="planner.png">
-					</div>
-					<span class="list-item__title">ゲストの皆様のご紹介</span>
-					<span class="list-item__subtitle">人数：2</span>
-				</ons-list-item>
-			</div>
-			<div id="planner">
-				<ons-list-item modifier="chevron" tappable>
-					<div class="left">
-						<img class="list-item__thumbnail" src="planner.png">
-					</div>
-					<span class="list-item__title">プランナーへのご相談</span>
-					<span class="list-item__subtitle">コメント数：6</span>
-				</ons-list-item>
-			</div>
-
 		</ons-list>
-
-		<ons-fab position="bottom right" ripple="true" id="something-new">
-			<ons-icon icon="md-plus"></ons-icon>
-		</ons-fab>
 
 		<script>
 			ons.getScriptPage().onInit = function () {
 				this.querySelector("#something-new").onclick = function () {
-					ons.openActionSheet({
-						title: 'なにを新しく作りますか？',
-						cancelable: true,
-						buttons: [
-							'新しいトークルームを作る',
-							'新しいアンケートを作る',
-							{
-								label: 'キャンセル',
-								icon: 'md-close'
-							}
-						]
-					}).then(function (index) {
-						if (index === 0) {
-							onsNav.pushPage("new-room.html", {animation: "lift"});
-						} else if (index === 1) {
-							onsNav.pushPage("new-questionnaire.html", {animation: "lift"});
-						}
-					});
+					onsNav.pushPage("new-room.html", {animation: "lift"});
 				};
 				this.querySelector("#ippan").onclick = function () {
 					onsNav.pushPage("talk-room.html");
-				};
-				this.querySelector("#planner").onclick = function () {
-					onsNav.pushPage("planner-talk-room.html");
-				};
-				this.querySelector("#questionnaires").onclick = function () {
-					onsNav.pushPage("questionnaire.html");
-				};
-				this.querySelector("#guests").onclick = function () {
-					onsNav.pushPage("guest-list.html");
 				};
 				this.querySelector("#settings").onclick = function () {
 					onsNav.pushPage("settings.html", {animation: "lift"});
@@ -186,20 +153,20 @@
 
 		<ons-toolbar>
 			<div class="left"><ons-toolbar-button id="cancel">キャンセル</ons-toolbar-button></div>
-			<div class="center">トークルームを作る</div>
+			<div class="center">エピソード登録</div>
 			<div class="right"><ons-toolbar-button id="ok">作成</ons-toolbar-button></div>
 		</ons-toolbar>
 
 		<ons-list>
 
-			<ons-list-header>２人のどちらに関する話題？</ons-list-header>
+			<ons-list-header>２人のどちらに関するエピソードですか？</ons-list-header>
 
 			<ons-list-item tappable>
 				<label class="left">
 					<ons-radio name="color" input-id="radio-1" checked></ons-radio>
 				</label>
 				<label for="radio-1" class="center">
-					<img src="sinro.png" style="height:30px;margin-right:10px;"> 新郎に関する話題
+					<img src="sinro_img.png" style="height:30px;margin-right:10px;"> 新郎のエピソード
 				</label>
 			</ons-list-item>
 
@@ -208,7 +175,7 @@
 					<ons-radio name="color" input-id="radio-2"></ons-radio>
 				</label>
 				<label for="radio-2" class="center">
-					<img src="sinpu.png" style="height:30px;margin-right:10px;"> 新婦に関する話題
+					<img src="sinpu_img.png" style="height:30px;margin-right:10px;"> 新婦のエピソード
 				</label>
 			</ons-list-item>
 
@@ -217,13 +184,18 @@
 					<ons-radio name="color" input-id="radio-3"></ons-radio>
 				</label>
 				<label for="radio-3" class="center">
-					<img src="sinrosinpu.png" style="height:30px;margin-right:10px;"> ２人に共通する話題
+					<img src="sinrosinpu.png" style="height:30px;margin-right:10px;"> その他の話題
 				</label>
 			</ons-list-item>
 
-			<ons-list-header>トークルームのタイトル</ons-list-header>
+			<ons-list-header>エピソードのタイトル</ons-list-header>
 			<ons-list-item>
 				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="20文字まで入力できます。" value="">
+			</ons-list-item>
+
+			<ons-list-header>写真</ons-list-header>
+			<ons-list-item>
+				<input type="file">
 			</ons-list-item>
 
 		</ons-list>
@@ -242,6 +214,66 @@
 	</ons-page>
 </template>
 
+<template id="questionnaires.html">
+	<ons-page>
+
+		<div class="background" style="background: linear-gradient(90deg, #786fa6 0%, #fff 100%);"></div>
+
+		<ons-toolbar>
+			<div class="center">アンケート</div>
+			<div class="right"><ons-toolbar-button id="settings">設定</ons-toolbar-button></div>
+		</ons-toolbar>
+
+		<div style="position:relative">
+			<img src='flowers-4004190_1920.jpg' style="width:100%;vertical-align:bottom;">
+			<ons-fab ripple="true" id="something-new" style="position:absolute;bottom:-30px;right:20px;left:auto;top:auto;">
+				<ons-icon icon="md-plus"></ons-icon>
+			</ons-fab>
+		</div>
+
+		<div style="padding:20px 10px 10px 10px;background-color:#fff;">
+			<strong style="font-size:1.3em">Questionnaire</strong>
+			<p>
+			新郎新婦に関するアンケートにお答えください。
+			新しいアンケートをお作りいただくこともできます。
+			</p>
+		</div>
+
+		<ons-list>
+			<div id="questionnaires">
+				<ons-list-item modifier="chevron" tappable>
+					<div class="left">
+						<img class="list-item__thumbnail" src="sinro_img.png">
+					</div>
+					<span class="list-item__title">あなたから見た新郎の血液型は？</span>
+					<span class="list-item__subtitle">回答数：6</span>
+				</ons-list-item>
+				<ons-list-item modifier="chevron" tappable>
+					<div class="left">
+						<img class="list-item__thumbnail" src="sinro_img.png">
+					</div>
+					<span class="list-item__title">新郎を動物に例えると？</span>
+					<span class="list-item__subtitle">回答数：1</span>
+				</ons-list-item>
+			</div>
+		</ons-list>
+
+		<script>
+			ons.getScriptPage().onInit = function () {
+				this.querySelector("#something-new").onclick = function () {
+						onsNav.pushPage("new-questionnaire.html", {animation: "lift"});
+				};
+				this.querySelector("#questionnaires").onclick = function () {
+					onsNav.pushPage("questionnaire.html");
+				};
+				this.querySelector("#settings").onclick = function () {
+					onsNav.pushPage("settings.html", {animation: "lift"});
+				};
+			};
+		</script>
+	</ons-page>
+</template>
+
 <template id="new-questionnaire.html">
 	<ons-page>
 
@@ -253,14 +285,14 @@
 
 		<ons-list>
 
-			<ons-list-header>２人のどちらに関するアンケート？</ons-list-header>
+			<ons-list-header>２人のどちらに関するアンケートですか？</ons-list-header>
 
 			<ons-list-item tappable>
 				<label class="left">
 					<ons-radio name="color" input-id="radio-1" checked></ons-radio>
 				</label>
 				<label for="radio-1" class="center">
-					<img src="sinro.png" style="height:30px;margin-right:10px;"> 新郎に関するアンケート
+					<img src="sinro_img.png" style="height:30px;margin-right:10px;"> 新郎に関するアンケート
 				</label>
 			</ons-list-item>
 
@@ -269,7 +301,7 @@
 					<ons-radio name="color" input-id="radio-2"></ons-radio>
 				</label>
 				<label for="radio-2" class="center">
-					<img src="sinpu.png" style="height:30px;margin-right:10px;"> 新婦に関するアンケート
+					<img src="sinpu_img.png" style="height:30px;margin-right:10px;"> 新婦に関するアンケート
 				</label>
 			</ons-list-item>
 
@@ -410,6 +442,58 @@
 	</ons-page>
 </template>
 
+<template id="from-planner.html">
+	<ons-page>
+
+		<ons-toolbar>
+			<div class="center">ご案内</div>
+			<div class="right"><ons-toolbar-button id="settings">設定</ons-toolbar-button></div>
+		</ons-toolbar>
+
+		<ons-card>
+			<div class="content">
+				<ons-row>
+					<ons-col width="120px">
+						<img src="planner2.png" style="width:100px">
+					</ons-col>
+					<ons-col>
+						ウェディングプランナーの鈴木と申します。よろしくお願いいたします。なんでもお気軽にご相談ください。
+						<br>
+						なお、お返事には少しお時間を頂くかもしれませんがご了承ください。
+					</ons-col>
+				</ons-row>
+			</div>
+		</ons-card>
+
+		<ons-list>
+			<div id="guests">
+				<ons-list-item modifier="chevron"tappable>
+					<span class="list-item">ゲストの皆様のご紹介</span>
+				</ons-list-item>
+			</div>
+			<div id="planner">
+				<ons-list-item modifier="chevron" tappable>
+					<span class="list-item">ウェディングプランナーへのご相談</span>
+				</ons-list-item>
+			</div>
+		</ons-list>
+
+		<script>
+			ons.getScriptPage().onInit = function () {
+				this.querySelector("#guests").onclick = function () {
+					onsNav.pushPage("guest-list.html");
+				};
+				this.querySelector("#planner").onclick = function () {
+					onsNav.pushPage("planner-talk-room.html");
+				};
+				this.querySelector("#settings").onclick = function () {
+					onsNav.pushPage("settings.html", {animation: "lift"});
+				};
+			};
+		</script>
+	</ons-page>
+</template>
+
 <template id="planner-talk-room.html">
 	<ons-page>
 
@@ -417,26 +501,8 @@
 
 		<ons-toolbar>
 			<div class="left"><ons-back-button>戻る</ons-back-button></div>
-			<div class="center">トークルーム</div>
+			<div class="center">プランナーへのご相談</div>
 		</ons-toolbar>
-
-		<ons-card>
-			<div class="title">
-				プランナーへのご相談
-			</div>
-			<div class="content">
-				<ons-row>
-					<ons-col width="120px">
-						<img src="planner2.png" style="width:100px">
-					</ons-col>
-					<ons-col>
-						ウェディングプランナーの鈴木と申します。なんでもお気軽にご相談ください。
-						<br>
-						なお、お返事には少しお時間を頂くかもしれませんがご了承ください。
-					</ons-col>
-				</ons-row>
-			</div>
-		</ons-card>
 
 		<div style="padding-bottom: 150px;">
 
@@ -523,7 +589,7 @@
 
 		<ons-list>
 
-			<ons-list-header>お名前（ニックネーム）</ons-list-header>
+			<ons-list-header>お名前（またはニックネーム）</ons-list-header>
 			<ons-list-item>
 				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="お名前" value="山田 太郎">
 			</ons-list-item>
@@ -538,7 +604,7 @@
 				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="パスワード" value="">
 			</ons-list-item>
 
-			<ons-list-header>顔アイコン</ons-list-header>
+			<ons-list-header>イメージアイコン</ons-list-header>
 			<ons-list-item tappable>
 				<label class="left">
 					<ons-radio name="color" input-id="radio-1" checked></ons-radio>
@@ -554,6 +620,24 @@
 				</label>
 				<label for="radio-2" class="center">
 					<img src="guest2.png" style="height:30px">
+				</label>
+			</ons-list-item>
+
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="color" input-id="radio-3"></ons-radio>
+				</label>
+				<label for="radio-3" class="center">
+					<img src="guest3.png" style="height:30px">
+				</label>
+			</ons-list-item>
+
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="color" input-id="radio-4"></ons-radio>
+				</label>
+				<label for="radio-4" class="center">
+					<img src="guest4.png" style="height:30px">
 				</label>
 			</ons-list-item>
 
@@ -683,7 +767,7 @@
 				<div class="left">
 					<img class="list-item__thumbnail" src="guest1.png">
 				</div>
-				<span class="list-item__title">山田 太郎</span>
+				<span class="list-item__title">山田 太郎 様</span>
 				<span class="list-item__subtitle">新郎側ゲスト</span>
 				<div class="expandable-content" style="padding-left:20px">
 					<div style="font-weight:bold">新郎との関係</div>
@@ -699,7 +783,7 @@
 				<div class="left">
 					<img class="list-item__thumbnail" src="guest2.png">
 				</div>
-				<span class="list-item__title">山本 洋子</span>
+				<span class="list-item__title">さちこ 様</span>
 				<span class="list-item__subtitle">新郎側ゲスト</span>
 				<div class="expandable-content" style="padding-left:20px">
 					<div style="font-weight:bold">新郎との関係</div>
@@ -710,11 +794,42 @@
 					<div style="padding-left:30px">イヌ</div>
 				</div>
 			</ons-list-item>
+
+			<ons-list-item expandable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="guest3.png">
+				</div>
+				<span class="list-item__title">ひろし 様</span>
+				<span class="list-item__subtitle">新婦側ゲスト</span>
+				<div class="expandable-content" style="padding-left:20px">
+					<div style="font-weight:bold">新婦との関係</div>
+					<div style="padding-left:30px">大学のサークル仲間</div>
+					<div style="font-weight:bold">あなたから見た新婦の血液型は？</div>
+					<div style="padding-left:30px">Ａ型</div>
+					<div style="font-weight:bold">新婦がいかにも得意そうな料理は？</div>
+					<div style="padding-left:30px">肉じゃが</div>
+				</div>
+			</ons-list-item>
+
+			<ons-list-item expandable>
+				<div class="left">
+					<img class="list-item__thumbnail" src="guest4.png">
+				</div>
+				<span class="list-item__title">山本 洋子 様</span>
+				<span class="list-item__subtitle">新婦側ゲスト</span>
+				<div class="expandable-content" style="padding-left:20px">
+					<div style="font-weight:bold">新婦との関係</div>
+					<div style="padding-left:30px">会社の同期</div>
+					<div style="font-weight:bold">あなたから見た新婦の血液型は？</div>
+					<div style="padding-left:30px">ＡＢ型</div>
+					<div style="font-weight:bold">新婦がいかにも得意そうな料理は？</div>
+					<div style="padding-left:30px">ラーメン</div>
+				</div>
+			</ons-list-item>
 		</ons-list>
 
 	</ons-page>
 </template>
-
 
 <template id="xxxx.html">
 	<ons-page>
@@ -727,6 +842,16 @@
 
 <script>
 	var onsNav = document.querySelector("#nav");
+
+	// ブラウザの戻るボタン制御
+	history.pushState(null, null, null);
+	window.addEventListener("popstate", function (e) {
+		if (onsNav.pages.length > 1) {
+			onsNav.popPage();
+		}
+		history.pushState(null, null, null);
+	});
+
 </script>
 
 </body>
