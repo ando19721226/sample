@@ -32,21 +32,20 @@
 				<strong>山田 太郎</strong> 様
 			</div>
 			<p>
-				　招待状からのアクセスありがとうございます！
+				　ご招待状からのアクセスありがとうございます！
 			</p>
 			<p>
 				　このWebサイトは、<strong>2020年12月31日</strong> に挙式予定の
 				<strong>豊洲太郎様</strong> と <strong>月島花子様</strong> の
-				披露宴にご参列されるゲストの皆様同士で、
-				披露宴をより楽しく盛り上げていただけるためのコミュニティー・スペースです。
+				披露宴にご参列されるゲストの皆様のためのコミュニティー・スペースです。
 			</p>
 
 			<p>
 				　なお、ご利用になる前にパスワードを決めていただく必要があります。
-				このパスワードは、別のスマホからアクセスする際などに必要です。
+				このパスワードは、別のスマホからアクセスする際などに必要となります。
 			</p>
 
-				<div><input type="text" class="text-input text-input--underbar" placeholder="任意のパスワード" value=""></div>
+			<div><input type="text" class="text-input text-input--underbar" placeholder="任意のパスワード" value=""></div>
 
 		</ons-card>
 
@@ -90,7 +89,7 @@
 		<div style="position:relative">
 			<img src='CDS_weddings_TP_V.jpg' style="width:100%;vertical-align:bottom;">
 			<ons-fab ripple="true" id="something-new" style="position:absolute;bottom:-30px;right:20px;left:auto;top:auto;">
-				<ons-icon icon="md-plus"></ons-icon>
+				<ons-icon icon="fa-plus"></ons-icon>
 			</ons-fab>
 		</div>
 
@@ -103,13 +102,13 @@
 		</div>
 
 		<ons-list>
-			<div id="ippan">
+			<div id="episode">
 				<ons-list-item modifier="chevron" tappable>
 					<div class="left">
 						<img class="list-item__thumbnail" src="sinro_img.png">
 					</div>
-					<span class="list-item__title">彼の選挙活動の思い出</span>
-					<span class="list-item__subtitle">コメント数：3</span>
+					<span class="list-item__title">選挙活動でのエピソード</span>
+					<span class="list-item__subtitle">新郎の社会人時代</span>
 					<div class="right">
 						<span class="notification">+2</span>
 					</div>
@@ -118,15 +117,17 @@
 					<div class="left">
 						<img class="list-item__thumbnail" src="sinpu_img.png">
 					</div>
-					<span class="list-item__title">彼女の学生時代</span>
-					<span class="list-item__subtitle">コメント数：3</span>
+					<span class="list-item__title">サークル活動</span>
+					<span class="list-item__subtitle">新婦の学生時代</span>
 				</ons-list-item>
+			</div>
+			<div id="other">
 				<ons-list-item modifier="chevron" tappable>
 					<div class="left">
 						<img class="list-item__thumbnail" src="sinro_img.png">
 					</div>
 					<span class="list-item__title">２次会のご案内</span>
-					<span class="list-item__subtitle">コメント数：3</span>
+					<span class="list-item__subtitle">フリートーク</span>
 				</ons-list-item>
 			</div>
 
@@ -137,7 +138,10 @@
 				this.querySelector("#something-new").onclick = function () {
 					onsNav.pushPage("new-room.html", {animation: "lift"});
 				};
-				this.querySelector("#ippan").onclick = function () {
+				this.querySelector("#episode").onclick = function () {
+					onsNav.pushPage("episode-room.html");
+				};
+				this.querySelector("#other").onclick = function () {
 					onsNav.pushPage("talk-room.html");
 				};
 				this.querySelector("#settings").onclick = function () {
@@ -227,7 +231,7 @@
 		<div style="position:relative">
 			<img src='flowers-4004190_1920.jpg' style="width:100%;vertical-align:bottom;">
 			<ons-fab ripple="true" id="something-new" style="position:absolute;bottom:-30px;right:20px;left:auto;top:auto;">
-				<ons-icon icon="md-plus"></ons-icon>
+				<ons-icon icon="fa-plus"></ons-icon>
 			</ons-fab>
 		</div>
 
@@ -343,25 +347,31 @@
 	</ons-page>
 </template>
 
-<template id="talk-room.html">
+
+<template id="episode-room.html">
 	<ons-page>
 
 		<div class="background" style="background-color: #7da4cd;"></div>
 
 		<ons-toolbar>
 			<div class="left"><ons-back-button>戻る</ons-back-button></div>
-			<div class="center">トークルーム</div>
+			<div class="center">エピソード</div>
 		</ons-toolbar>
 
 		<div style="padding-bottom: 150px;">
 
 			<div class="line__title">
-				彼の選挙活動の思い出
+				選挙活動でのエピソード
 			</div>
 
 			<div class="line__container">
 
 				<div class="line__contents">
+
+					<!-- 相手のスタンプ -->
+					<div class="line__left">
+						<div class="stamp" id="picture"><img src="OOK86_maikusupichi_TP_V.jpg" /></div>
+					</div>
 
 					<!-- 相手の吹き出し -->
 					<div class="line__left">
@@ -372,11 +382,6 @@
 							<div class="name">田中 一郎</div>
 							<div class="text">彼が選挙活動で街頭演説をしている時の写真です。</div>
 						</div>
-					</div>
-
-					<!-- 相手のスタンプ -->
-					<div class="line__left">
-						<div class="stamp" id="picture"><img src="OOK86_maikusupichi_TP_V.jpg" /></div>
 					</div>
 
 					<!-- 相手の吹き出し -->
@@ -428,6 +433,66 @@
 				};
 			};
 		</script>
+
+	</ons-page>
+</template>
+
+
+<template id="talk-room.html">
+	<ons-page>
+
+		<div class="background" style="background-color: #7da4cd;"></div>
+
+		<ons-toolbar>
+			<div class="left"><ons-back-button>戻る</ons-back-button></div>
+			<div class="center">フリートーク</div>
+		</ons-toolbar>
+
+		<div style="padding-bottom: 150px;">
+
+			<div class="line__title">
+				２次会のご案内
+			</div>
+
+			<div class="line__container">
+
+				<div class="line__contents">
+
+					<!-- 相手の吹き出し -->
+					<div class="line__left">
+						<figure>
+							<img src="guest1.png" />
+						</figure>
+						<div class="line__left-text">
+							<div class="name">田中 一郎</div>
+							<div class="text">テスト</div>
+						</div>
+					</div>
+
+				</div>
+				<!--　▲会話エリア ここまで -->
+			</div>
+			<!--　▲LINE風ここまで -->
+		</div>
+
+		<ons-bottom-toolbar style="height:140px">
+			<div style="padding:10px">
+				<textarea class="textarea" rows="3" placeholder="100文字まで入力できます" style="width:100%;"></textarea>
+
+				<ons-row>
+					<ons-col>
+						<div style="margin-top:10px;">
+							<input type="file">
+						</div>
+					</ons-col>
+					<ons-col>
+						<div style="margin-top:10px;text-align:right">
+							<ons-button modifier="quiet">送信</ons-button>
+						</div>
+					</ons-col>
+				</ons-row>
+			</div>
+		</ons-bottom-toolbar>
 
 	</ons-page>
 </template>
