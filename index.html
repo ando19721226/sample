@@ -156,10 +156,37 @@
 	<ons-page>
 
 		<ons-toolbar>
-			<div class="left"><ons-toolbar-button id="cancel">キャンセル</ons-toolbar-button></div>
-			<div class="center">エピソード登録</div>
+			<div class="left"><ons-toolbar-button id="cancel">中止</ons-toolbar-button></div>
+			<div class="center">
+				<ons-segment id="segment" tabbar-id="tabbar" style="width: 180px">
+					<button>エピソード</button>
+					<button>フリートーク</button>
+				</ons-segment>
+			</div>
 			<div class="right"><ons-toolbar-button id="ok">作成</ons-toolbar-button></div>
 		</ons-toolbar>
+
+		<ons-tabbar id="tabbar">
+			<ons-tab page="new-episode.html" active></ons-tab>
+			<ons-tab page="new-freetalk.html"></ons-tab>
+		</ons-tabbar>
+
+		<script>
+			ons.getScriptPage().onInit = function () {
+				this.querySelector("#ok").onclick = function () {
+					ons.notification.toast('ご登録ありがとうございます！', { timeout: 1000, animation: 'fall' })
+					onsNav.popPage();
+				};
+				this.querySelector("#cancel").onclick = function () {
+					onsNav.popPage();
+				};
+			};
+		</script>
+	</ons-page>
+</template>
+
+<template id="new-episode.html">
+	<ons-page>
 
 		<ons-list>
 
@@ -167,35 +194,58 @@
 
 			<ons-list-item tappable>
 				<label class="left">
-					<ons-radio name="color" input-id="radio-1" checked></ons-radio>
+					<ons-radio name="radio-1" input-id="radio-1-1" checked></ons-radio>
 				</label>
-				<label for="radio-1" class="center">
+				<label for="radio-1-1" class="center">
 					<img src="sinro_img.png" style="height:30px;margin-right:10px;"> 新郎のエピソード
 				</label>
 			</ons-list-item>
 
 			<ons-list-item tappable>
 				<label class="left">
-					<ons-radio name="color" input-id="radio-2"></ons-radio>
+					<ons-radio name="radio-1" input-id="radio-1-2"></ons-radio>
 				</label>
-				<label for="radio-2" class="center">
+				<label for="radio-1-2" class="center">
 					<img src="sinpu_img.png" style="height:30px;margin-right:10px;"> 新婦のエピソード
+				</label>
+			</ons-list-item>
+
+
+			<ons-list-header>どの年代のエピソードですか？</ons-list-header>
+
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="radio-2" input-id="radio-2-1" checked></ons-radio>
+				</label>
+				<label for="radio-2-1" class="center">
+					幼少時代
 				</label>
 			</ons-list-item>
 
 			<ons-list-item tappable>
 				<label class="left">
-					<ons-radio name="color" input-id="radio-3"></ons-radio>
+					<ons-radio name="radio-2" input-id="radio-2-2"></ons-radio>
 				</label>
-				<label for="radio-3" class="center">
-					<img src="sinrosinpu.png" style="height:30px;margin-right:10px;"> その他の話題
+				<label for="radio-2-2" class="center">
+					学生時代
 				</label>
 			</ons-list-item>
+
+			<ons-list-item tappable>
+				<label class="left">
+					<ons-radio name="radio-2" input-id="radio-2-3"></ons-radio>
+				</label>
+				<label for="radio-2-3" class="center">
+					社会人時代
+				</label>
+			</ons-list-item>
+
 
 			<ons-list-header>エピソードのタイトル</ons-list-header>
 			<ons-list-item>
 				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="20文字まで入力できます。" value="">
 			</ons-list-item>
+
 
 			<ons-list-header>写真</ons-list-header>
 			<ons-list-item>
@@ -204,17 +254,21 @@
 
 		</ons-list>
 
-		<script>
-			ons.getScriptPage().onInit = function () {
-				this.querySelector("#ok").onclick = function () {
-					ons.notification.toast('ありがとうございます！', { timeout: 1000, animation: 'fall' })
-					onsNav.popPage();
-				};
-				this.querySelector("#cancel").onclick = function () {
-					onsNav.popPage();
-				};
-			};
-		</script>
+	</ons-page>
+</template>
+
+<template id="new-freetalk.html">
+	<ons-page>
+
+		<ons-list>
+
+			<ons-list-header>フリートークのタイトル</ons-list-header>
+			<ons-list-item>
+				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="20文字まで入力できます。" value="">
+			</ons-list-item>
+
+		</ons-list>
+
 	</ons-page>
 </template>
 
@@ -282,7 +336,7 @@
 	<ons-page>
 
 		<ons-toolbar>
-			<div class="left"><ons-toolbar-button id="cancel">キャンセル</ons-toolbar-button></div>
+			<div class="left"><ons-toolbar-button id="cancel">中止</ons-toolbar-button></div>
 			<div class="center">アンケートを作る</div>
 			<div class="right"><ons-toolbar-button id="ok">作成</ons-toolbar-button></div>
 		</ons-toolbar>
@@ -647,7 +701,7 @@
 <template id="settings.html">
 	<ons-page>
 		<ons-toolbar>
-			<div class="left"><ons-toolbar-button id="cancel">キャンセル</ons-toolbar-button></div>
+			<div class="left"><ons-toolbar-button id="cancel">中止</ons-toolbar-button></div>
 			<div class="center">設定</div>
 			<div class="right"><ons-toolbar-button id="ok">保存</ons-toolbar-button></div>
 		</ons-toolbar>
