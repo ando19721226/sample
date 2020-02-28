@@ -1,13 +1,23 @@
 <html>
 
 hello.
-  
-  <a href="http://leggiero.sakura.ne.jp/xxxxbasic_auth_testxxxx/secret/kaiin_page_top.htm">ここ</a>
 
+<p>
+<a href="http://leggiero.sakura.ne.jp/xxxxbasic_auth_testxxxx/secret/kaiin_page_top.htm">単純なリンク</a>
+</p>
+
+<p>
 <form action="http://leggiero.sakura.ne.jp/xxxxbasic_auth_testxxxx/secret/kaiin_page_top.htm" method="get" target="hoge">
-	<button type="submit">ここ</button>
+	<button type="submit">targetをiframeへ</button>
+</form>
+
+
+<p>
+<form action="http://kaiin:haisho@leggiero.sakura.ne.jp/xxxxbasic_auth_testxxxx/secret/kaiin_page_top.htm" method="get" target="hoge">
+	<button type="submit">targetをiframeへ+URL埋め込み</button>
 </form>
 
 <iframe name="hoge"></iframe>
+</p>
 
 </html>
