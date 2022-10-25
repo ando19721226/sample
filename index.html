@@ -1,979 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8" />
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>sample</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes">
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
-	<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
-	<link rel="stylesheet" href="line.css" type="text/css">
-	<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap.css" rel="stylesheet">
+    <script src="bootstrap-5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>鎌倉湘南ポータルサイト</title>
 </head>
 <body>
 
-
-<ons-navigator swipeable id="nav" page="top.html"></ons-navigator>
-
-<template id="top.html">
-	<ons-page>
-
-		<!--
-		<div class="background" style="background-image:url('TSU92_syukuhuku_TP_V.jpg');background-size:contain;"></div>
-		!-->
-
-		<img src='decor-1854075_1280.jpg' style="width:100%"></img>
-
-		<ons-card>
-			<div class="title">
-				<strong>山田 太郎</strong> 様
-			</div>
-			<p>
-				　ご招待状からのアクセスありがとうございます！
-			</p>
-			<p>
-				　このWebサイトは、<strong>2020年12月31日</strong> に挙式予定の
-				<strong>豊洲太郎様</strong> と <strong>月島花子様</strong> の
-				披露宴にご参列されるゲストの皆様のためのコミュニティー・スペースです。
-			</p>
-
-			<p>
-				　なお、ご利用になる前にパスワードを決めていただく必要があります。
-				このパスワードは、別のスマホからアクセスする際などに必要となります。
-			</p>
-
-			<div><input type="text" class="text-input text-input--underbar" placeholder="任意のパスワード" value=""></div>
-
-		</ons-card>
-
-		<ons-fab ripple="true" position="right bottom" id="b">
-			<ons-icon icon="md-check"></ons-icon>
-		</ons-fab>
-
-		<script>
-			ons.getScriptPage().onInit = function () {
-				this.querySelector("#b").onclick = function () {
-					onsNav.replacePage("tabbar.html");
-				};
-			};
-		</script>
-	</ons-page>
-</template>
-
-<template id="tabbar.html">
-	<ons-page>
-		<ons-tabbar swipeable position="auto">
-			<ons-tab page="talk-rooms.html" label="エピソード" icon="fa-comments" badge="2">
-			</ons-tab>
-			<ons-tab page="questionnaires.html" label="アンケート" icon="fa-clipboard-list">
-			</ons-tab>
-			<ons-tab page="from-planner.html" label="ご案内" icon="fa-info-circle">
-			</ons-tab>
-		</ons-tabbar>
-	</ons-page>
-</template>
-
-<template id="talk-rooms.html">
-	<ons-page>
-		
-		<div class="background" style="background: linear-gradient(90deg, #ea8685 0%, #fff 100%);"></div>
-
-		<ons-toolbar>
-			<div class="center">エピソード</div>
-			<div class="right"><ons-toolbar-button id="settings">設定</ons-toolbar-button></div>
-		</ons-toolbar>
-
-		<div style="position:relative">
-			<img src='CDS_weddings_TP_V.jpg' style="width:100%;vertical-align:bottom;">
-			<ons-fab ripple="true" id="something-new" style="position:absolute;bottom:-30px;right:20px;left:auto;top:auto;">
-				<ons-icon icon="fa-plus"></ons-icon>
-			</ons-fab>
-		</div>
-
-		<div style="padding:20px 10px 10px 10px;background-color:#fff;">
-			<strong style="font-size:1.3em">Episode</strong>
-			<p>
-			新郎新婦の楽しいエピソードや写真を投稿して、ゲストの皆様同士で楽しくお話しませんか？
-			どなたでもお気軽にご参加ください！
-			</p>
-		</div>
-
-		<ons-list>
-			<div id="episode">
-				<ons-list-item modifier="chevron" tappable>
-					<div class="left">
-						<img class="list-item__thumbnail" src="sinro_img.png">
-					</div>
-					<span class="list-item__title">選挙活動でのエピソード</span>
-					<span class="list-item__subtitle">新郎の社会人時代</span>
-					<div class="right">
-						<span class="notification">+2</span>
-					</div>
-				</ons-list-item>
-				<ons-list-item modifier="chevron" tappable>
-					<div class="left">
-						<img class="list-item__thumbnail" src="sinpu_img.png">
-					</div>
-					<span class="list-item__title">サークル活動</span>
-					<span class="list-item__subtitle">新婦の学生時代</span>
-				</ons-list-item>
-			</div>
-			<div id="other">
-				<ons-list-item modifier="chevron" tappable>
-					<div class="left">
-						<img class="list-item__thumbnail" src="sinro_img.png">
-					</div>
-					<span class="list-item__title">２次会のご案内</span>
-					<span class="list-item__subtitle">フリートーク</span>
-				</ons-list-item>
-			</div>
-
-		</ons-list>
-
-		<script>
-			ons.getScriptPage().onInit = function () {
-				this.querySelector("#something-new").onclick = function () {
-					onsNav.pushPage("new-room.html", {animation: "lift"});
-				};
-				this.querySelector("#episode").onclick = function () {
-					onsNav.pushPage("episode-room.html");
-				};
-				this.querySelector("#other").onclick = function () {
-					onsNav.pushPage("talk-room.html");
-				};
-				this.querySelector("#settings").onclick = function () {
-					onsNav.pushPage("settings.html", {animation: "lift"});
-				};
-			};
-		</script>
-	</ons-page>
-</template>
-
-<template id="new-room.html">
-	<ons-page>
-
-		<ons-toolbar>
-			<div class="left"><ons-toolbar-button id="cancel">中止</ons-toolbar-button></div>
-			<div class="center">
-				<ons-segment id="segment" tabbar-id="tabbar" style="width: 180px">
-					<button>エピソード</button>
-					<button>フリートーク</button>
-				</ons-segment>
-			</div>
-			<div class="right"><ons-toolbar-button id="ok">作成</ons-toolbar-button></div>
-		</ons-toolbar>
-
-		<ons-tabbar id="tabbar">
-			<ons-tab page="new-episode.html" active></ons-tab>
-			<ons-tab page="new-freetalk.html"></ons-tab>
-		</ons-tabbar>
-
-		<script>
-			ons.getScriptPage().onInit = function () {
-				this.querySelector("#ok").onclick = function () {
-					ons.notification.toast('ご登録ありがとうございます！', { timeout: 1000, animation: 'fall' })
-					onsNav.popPage();
-				};
-				this.querySelector("#cancel").onclick = function () {
-					onsNav.popPage();
-				};
-			};
-		</script>
-	</ons-page>
-</template>
-
-<template id="new-episode.html">
-	<ons-page>
-
-		<ons-list>
-
-			<ons-list-header>２人のどちらに関するエピソードですか？</ons-list-header>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="radio-1" input-id="radio-1-1" checked></ons-radio>
-				</label>
-				<label for="radio-1-1" class="center">
-					<img src="sinro_img.png" style="height:30px;margin-right:10px;"> 新郎のエピソード
-				</label>
-			</ons-list-item>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="radio-1" input-id="radio-1-2"></ons-radio>
-				</label>
-				<label for="radio-1-2" class="center">
-					<img src="sinpu_img.png" style="height:30px;margin-right:10px;"> 新婦のエピソード
-				</label>
-			</ons-list-item>
-
-
-			<ons-list-header>どの年代のエピソードですか？</ons-list-header>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="radio-2" input-id="radio-2-1" checked></ons-radio>
-				</label>
-				<label for="radio-2-1" class="center">
-					幼少時代
-				</label>
-			</ons-list-item>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="radio-2" input-id="radio-2-2"></ons-radio>
-				</label>
-				<label for="radio-2-2" class="center">
-					学生時代
-				</label>
-			</ons-list-item>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="radio-2" input-id="radio-2-3"></ons-radio>
-				</label>
-				<label for="radio-2-3" class="center">
-					社会人時代
-				</label>
-			</ons-list-item>
-
-
-			<ons-list-header>エピソードのタイトル</ons-list-header>
-			<ons-list-item>
-				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="20文字まで入力できます。" value="">
-			</ons-list-item>
-
-
-			<ons-list-header>写真</ons-list-header>
-			<ons-list-item>
-				<input type="file">
-			</ons-list-item>
-
-		</ons-list>
-
-	</ons-page>
-</template>
-
-<template id="new-freetalk.html">
-	<ons-page>
-
-		<ons-list>
-
-			<ons-list-header>フリートークのタイトル</ons-list-header>
-			<ons-list-item>
-				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="20文字まで入力できます。" value="">
-			</ons-list-item>
-
-		</ons-list>
-
-	</ons-page>
-</template>
-
-<template id="questionnaires.html">
-	<ons-page>
-
-		<div class="background" style="background: linear-gradient(90deg, #786fa6 0%, #fff 100%);"></div>
-
-		<ons-toolbar>
-			<div class="center">アンケート</div>
-			<div class="right"><ons-toolbar-button id="settings">設定</ons-toolbar-button></div>
-		</ons-toolbar>
-
-		<div style="position:relative">
-			<img src='flowers-4004190_1920.jpg' style="width:100%;vertical-align:bottom;">
-			<ons-fab ripple="true" id="something-new" style="position:absolute;bottom:-30px;right:20px;left:auto;top:auto;">
-				<ons-icon icon="fa-plus"></ons-icon>
-			</ons-fab>
-		</div>
-
-		<div style="padding:20px 10px 10px 10px;background-color:#fff;">
-			<strong style="font-size:1.3em">Questionnaire</strong>
-			<p>
-			新郎新婦に関するアンケートにお答えください。
-			新しいアンケートをお作りいただくこともできます。
-			</p>
-		</div>
-
-		<ons-list>
-			<div id="questionnaires">
-				<ons-list-item modifier="chevron" tappable>
-					<div class="left">
-						<img class="list-item__thumbnail" src="sinro_img.png">
-					</div>
-					<span class="list-item__title">あなたから見た新郎の血液型は？</span>
-					<span class="list-item__subtitle">回答数：6</span>
-				</ons-list-item>
-				<ons-list-item modifier="chevron" tappable>
-					<div class="left">
-						<img class="list-item__thumbnail" src="sinro_img.png">
-					</div>
-					<span class="list-item__title">新郎を動物に例えると？</span>
-					<span class="list-item__subtitle">回答数：1</span>
-				</ons-list-item>
-			</div>
-		</ons-list>
-
-		<script>
-			ons.getScriptPage().onInit = function () {
-				this.querySelector("#something-new").onclick = function () {
-						onsNav.pushPage("new-questionnaire.html", {animation: "lift"});
-				};
-				this.querySelector("#questionnaires").onclick = function () {
-					onsNav.pushPage("questionnaire.html");
-				};
-				this.querySelector("#settings").onclick = function () {
-					onsNav.pushPage("settings.html", {animation: "lift"});
-				};
-			};
-		</script>
-	</ons-page>
-</template>
-
-<template id="new-questionnaire.html">
-	<ons-page>
-
-		<ons-toolbar>
-			<div class="left"><ons-toolbar-button id="cancel">中止</ons-toolbar-button></div>
-			<div class="center">アンケートを作る</div>
-			<div class="right"><ons-toolbar-button id="ok">作成</ons-toolbar-button></div>
-		</ons-toolbar>
-
-		<ons-list>
-
-			<ons-list-header>２人のどちらに関するアンケートですか？</ons-list-header>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="color" input-id="radio-1" checked></ons-radio>
-				</label>
-				<label for="radio-1" class="center">
-					<img src="sinro_img.png" style="height:30px;margin-right:10px;"> 新郎に関するアンケート
-				</label>
-			</ons-list-item>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="color" input-id="radio-2"></ons-radio>
-				</label>
-				<label for="radio-2" class="center">
-					<img src="sinpu_img.png" style="height:30px;margin-right:10px;"> 新婦に関するアンケート
-				</label>
-			</ons-list-item>
-
-			<ons-list-header>アンケートのタイトル</ons-list-header>
-			<ons-list-item>
-				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="20文字まで入力できます。" value="">
-			</ons-list-item>
-
-			<ons-list-header>回答の選択肢（最大５つまで）</ons-list-header>
-			<ons-list-item>
-				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="選択肢１" value="">
-			</ons-list-item>
-			<ons-list-item>
-				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="選択肢２" value="">
-			</ons-list-item>
-			<ons-list-item>
-				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="選択肢３" value="">
-			</ons-list-item>
-			<ons-list-item>
-				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="選択肢４" value="">
-			</ons-list-item>
-			<ons-list-item>
-				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="選択肢５" value="">
-			</ons-list-item>
-
-		</ons-list>
-
-		<script>
-			ons.getScriptPage().onInit = function () {
-				this.querySelector("#ok").onclick = function () {
-					ons.notification.toast('ありがとうございます！', { timeout: 1000, animation: 'fall' })
-					onsNav.popPage();
-				};
-				this.querySelector("#cancel").onclick = function () {
-					onsNav.popPage();
-				};
-			};
-		</script>
-	</ons-page>
-</template>
-
-
-<template id="episode-room.html">
-	<ons-page>
-
-		<div class="background" style="background-color: #7da4cd;"></div>
-
-		<ons-toolbar>
-			<div class="left"><ons-back-button>戻る</ons-back-button></div>
-			<div class="center">エピソード</div>
-		</ons-toolbar>
-
-		<div style="padding-bottom: 150px;">
-
-			<div class="line__title">
-				選挙活動でのエピソード
-			</div>
-
-			<div class="line__container">
-
-				<div class="line__contents">
-
-					<!-- 相手のスタンプ -->
-					<div class="line__left">
-						<div class="stamp" id="picture"><img src="OOK86_maikusupichi_TP_V.jpg" /></div>
-					</div>
-
-					<!-- 相手の吹き出し -->
-					<div class="line__left">
-						<figure>
-							<img src="guest1.png" />
-						</figure>
-						<div class="line__left-text">
-							<div class="name">田中 一郎</div>
-							<div class="text">彼が選挙活動で街頭演説をしている時の写真です。</div>
-						</div>
-					</div>
-
-					<!-- 相手の吹き出し -->
-					<div class="line__left">
-						<figure>
-							<img src="guest2.png" />
-						</figure>
-						<div class="line__left-text">
-							<div class="name">山本 洋子</div>
-							<div class="text">かっこいい！</div>
-						</div>
-					</div>
-
-					<!-- 自分の吹き出し -->
-					<div class="line__right">
-						<div class="text">みごと当選しましたね。</div>
-						<span class="date">既読<br>0:30</span>
-					</div>
-
-				</div>
-				<!--　▲会話エリア ここまで -->
-			</div>
-			<!--　▲LINE風ここまで -->
-		</div>
-
-		<ons-bottom-toolbar style="height:140px">
-			<div style="padding:10px">
-				<textarea class="textarea" rows="3" placeholder="100文字まで入力できます" style="width:100%;"></textarea>
-
-				<ons-row>
-					<ons-col>
-						<div style="margin-top:10px;">
-							<input type="file">
-						</div>
-					</ons-col>
-					<ons-col>
-						<div style="margin-top:10px;text-align:right">
-							<ons-button modifier="quiet">送信</ons-button>
-						</div>
-					</ons-col>
-				</ons-row>
-			</div>
-		</ons-bottom-toolbar>
-
-		<script>
-			ons.getScriptPage().onInit = function () {
-				this.querySelector("#picture").onclick = function () {
-					onsNav.pushPage("picture.html");
-				};
-			};
-		</script>
-
-	</ons-page>
-</template>
-
-
-<template id="talk-room.html">
-	<ons-page>
-
-		<div class="background" style="background-color: #7da4cd;"></div>
-
-		<ons-toolbar>
-			<div class="left"><ons-back-button>戻る</ons-back-button></div>
-			<div class="center">フリートーク</div>
-		</ons-toolbar>
-
-		<div style="padding-bottom: 150px;">
-
-			<div class="line__title">
-				２次会のご案内
-			</div>
-
-			<div class="line__container">
-
-				<div class="line__contents">
-
-					<!-- 相手の吹き出し -->
-					<div class="line__left">
-						<figure>
-							<img src="guest1.png" />
-						</figure>
-						<div class="line__left-text">
-							<div class="name">田中 一郎</div>
-							<div class="text">テスト</div>
-						</div>
-					</div>
-
-				</div>
-				<!--　▲会話エリア ここまで -->
-			</div>
-			<!--　▲LINE風ここまで -->
-		</div>
-
-		<ons-bottom-toolbar style="height:140px">
-			<div style="padding:10px">
-				<textarea class="textarea" rows="3" placeholder="100文字まで入力できます" style="width:100%;"></textarea>
-
-				<ons-row>
-					<ons-col>
-						<div style="margin-top:10px;">
-							<input type="file">
-						</div>
-					</ons-col>
-					<ons-col>
-						<div style="margin-top:10px;text-align:right">
-							<ons-button modifier="quiet">送信</ons-button>
-						</div>
-					</ons-col>
-				</ons-row>
-			</div>
-		</ons-bottom-toolbar>
-
-	</ons-page>
-</template>
-
-<template id="picture.html">
-	<ons-page>
-		<ons-toolbar>
-			<div class="left"><ons-back-button></ons-back-button></div>
-			<div class="center">写真</div>
-		</ons-toolbar>
-		<img src="OOK86_maikusupichi_TP_V.jpg" style="width:100%"/>
-	</ons-page>
-</template>
-
-<template id="from-planner.html">
-	<ons-page>
-
-		<ons-toolbar>
-			<div class="center">ご案内</div>
-			<div class="right"><ons-toolbar-button id="settings">設定</ons-toolbar-button></div>
-		</ons-toolbar>
-
-		<ons-card>
-			<div class="content">
-				<ons-row>
-					<ons-col width="120px">
-						<img src="planner2.png" style="width:100px">
-					</ons-col>
-					<ons-col>
-						ウェディングプランナーの鈴木と申します。よろしくお願いいたします。なんでもお気軽にご相談ください。
-						<br>
-						なお、お返事には少しお時間を頂くかもしれませんがご了承ください。
-					</ons-col>
-				</ons-row>
-			</div>
-		</ons-card>
-
-		<ons-list>
-			<div id="guests">
-				<ons-list-item modifier="chevron"tappable>
-					<span class="list-item">ゲストの皆様のご紹介</span>
-				</ons-list-item>
-			</div>
-			<div id="planner">
-				<ons-list-item modifier="chevron" tappable>
-					<span class="list-item">ウェディングプランナーへのご相談</span>
-				</ons-list-item>
-			</div>
-		</ons-list>
-
-		<script>
-			ons.getScriptPage().onInit = function () {
-				this.querySelector("#guests").onclick = function () {
-					onsNav.pushPage("guest-list.html");
-				};
-				this.querySelector("#planner").onclick = function () {
-					onsNav.pushPage("planner-talk-room.html");
-				};
-				this.querySelector("#settings").onclick = function () {
-					onsNav.pushPage("settings.html", {animation: "lift"});
-				};
-			};
-		</script>
-	</ons-page>
-</template>
-
-<template id="planner-talk-room.html">
-	<ons-page>
-
-		<div class="background" style="background-color: #7da4cd;"></div>
-
-		<ons-toolbar>
-			<div class="left"><ons-back-button>戻る</ons-back-button></div>
-			<div class="center">プランナーへのご相談</div>
-		</ons-toolbar>
-
-		<div style="padding-bottom: 150px;">
-
-			<div class="line__container">
-
-				<div class="line__contents">
-
-					<div class="line__left">
-						<figure>
-							<img src="planner2.png" />
-						</figure>
-						<div class="line__left-text">
-							<div class="name">鈴木（プランナー）</div>
-							<div class="text">なんでもお気軽にご相談ください。</div>
-						</div>
-					</div>
-
-					<div class="line__right">
-						<div class="text">子供を連れて行かなければならないのですが、近くに託児所はありますか？</div>
-						<span class="date">既読<br>13:30</span>
-					</div>
-
-					<div class="line__left">
-						<figure>
-							<img src="planner2.png" />
-						</figure>
-						<div class="line__left-text">
-							<div class="name">鈴木（プランナー）</div>
-							<div class="text">はじめまして。式場の中にベビールームがございます。事前にご予約が必要になりますので、お手数ですがお電話いただいてよろしいでしょうか。</div>
-						</div>
-					</div>
-
-					<div class="line__right">
-						<div class="text">ありがとうございます。電話してみます。</div>
-						<span class="date">既読<br>13:35</span>
-					</div>
-
-					<div class="line__left">
-						<figure>
-							<img src="guest2.png" />
-						</figure>
-						<div class="line__left-text">
-							<div class="name">さちこ</div>
-							<div class="text">授乳室もありますか？</div>
-						</div>
-					</div>
-
-					<div class="line__left">
-						<figure>
-							<img src="planner2.png" />
-						</figure>
-						<div class="line__left-text">
-							<div class="name">鈴木（プランナー）</div>
-							<div class="text">はい、授乳室もございます。もちろんご予約は必要ありません。粉ミルク用のお湯もあります。</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-		<ons-bottom-toolbar style="height:140px">
-			<div style="padding:10px">
-
-				<textarea class="textarea" rows="3" placeholder="100文字まで入力できます" style="width:100%;"></textarea>
-
-				<div style="margin-top:10px;text-align:right">
-					<ons-button modifier="quiet">送信</ons-button>
-				</div>
-
-			</div>
-		</ons-bottom-toolbar>
-
-	</ons-page>
-</template>
-
-<template id="settings.html">
-	<ons-page>
-		<ons-toolbar>
-			<div class="left"><ons-toolbar-button id="cancel">中止</ons-toolbar-button></div>
-			<div class="center">設定</div>
-			<div class="right"><ons-toolbar-button id="ok">保存</ons-toolbar-button></div>
-		</ons-toolbar>
-
-		<ons-list>
-
-			<ons-list-header>お名前（またはニックネーム）</ons-list-header>
-			<ons-list-item>
-				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="お名前" value="山田 太郎">
-			</ons-list-item>
-
-			<ons-list-header>新郎とのご関係</ons-list-header>
-			<ons-list-item>
-				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="新郎とのご関係" value="会社の上司">
-			</ons-list-item>
-
-			<ons-list-header>新しいパスワード</ons-list-header>
-			<ons-list-item>
-				<input type="text" style="width:100%" class="text-input text-input--underbar" placeholder="パスワード" value="">
-			</ons-list-item>
-
-			<ons-list-header>イメージアイコン</ons-list-header>
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="color" input-id="radio-1" checked></ons-radio>
-				</label>
-				<label for="radio-1" class="center">
-					<img src="guest1.png" style="height:30px">
-				</label>
-			</ons-list-item>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="color" input-id="radio-2"></ons-radio>
-				</label>
-				<label for="radio-2" class="center">
-					<img src="guest2.png" style="height:30px">
-				</label>
-			</ons-list-item>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="color" input-id="radio-3"></ons-radio>
-				</label>
-				<label for="radio-3" class="center">
-					<img src="guest3.png" style="height:30px">
-				</label>
-			</ons-list-item>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="color" input-id="radio-4"></ons-radio>
-				</label>
-				<label for="radio-4" class="center">
-					<img src="guest4.png" style="height:30px">
-				</label>
-			</ons-list-item>
-
-		</ons-list>
-
-		<script>
-			ons.getScriptPage().onInit = function () {
-				this.querySelector("#ok").onclick = function () {
-					onsNav.popPage();
-				};
-				this.querySelector("#cancel").onclick = function () {
-					onsNav.popPage();
-				};
-			};
-		</script>
-	</ons-page>
-</template>
-
-
-<template id="questionnaire.html">
-	<ons-page>
-		<ons-toolbar>
-			<div class="left"><ons-back-button></ons-back-button></div>
-			<div class="center">アンケート</div>
-		</ons-toolbar>
-
-		<ons-card>
-			<canvas id="chart"></canvas>
-		</ons-card>
-
-		<ons-list>
-
-			<ons-list-header>お選びください</ons-list-header>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="color" input-id="radio-1" checked></ons-radio>
-				</label>
-				<label for="radio-1" class="center">
-					Ａ型
-				</label>
-			</ons-list-item>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="color" input-id="radio-2"></ons-radio>
-				</label>
-				<label for="radio-2" class="center">
-					Ｂ型
-				</label>
-			</ons-list-item>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="color" input-id="radio-3"></ons-radio>
-				</label>
-				<label for="radio-3" class="center">
-					Ｏ型
-				</label>
-			</ons-list-item>
-
-			<ons-list-item tappable>
-				<label class="left">
-					<ons-radio name="color" input-id="radio-4"></ons-radio>
-				</label>
-				<label for="radio-4" class="center">
-					ＡＢ型
-				</label>
-			</ons-list-item>
-
-		</ons-list>
-
-		<div style="margin:10px;text-align:right">
-			<ons-button id="ok">送信</ons-button>
-		</div>
-
-		<script>
-			var ctx = document.getElementById("chart");
-			var myPieChart = new Chart(ctx, {
-				type: 'pie',
-				data: {
-					labels: ["Ａ型", "Ｂ型", "Ｏ型", "ＡＢ型"],
-					datasets: [{
-						backgroundColor: [
-							"#FFC312",
-							"#12CBC4",
-							"#D980FA",
-							"#ED4C67"
-						],
-						data: [38, 31, 11, 10]
-					}]
-				},
-				options: {
-					title: {
-						display: true,
-						text: 'あなたから見た新郎の血液型は？',
-						fontSize: 18,
-						fontStyle: ""
-					},
-					legend: {
-						display: true,
-						position: "right"
-					}
-				}
-			});
-
-			ons.getScriptPage().onInit = function () {
-				this.querySelector("#ok").onclick = function () {
-					ons.notification.toast('ご回答ありがとうございました！', { timeout: 1000, animation: 'fall' })
-				};
-			};
-
-		</script>
-	</ons-page>
-</template>
-
-
-<template id="guest-list.html">
-	<ons-page>
-		<ons-toolbar>
-			<div class="left"><ons-back-button></ons-back-button></div>
-			<div class="center">ゲストの皆様</div>
-		</ons-toolbar>
-
-		<ons-list>
-			<ons-list-item expandable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="guest1.png">
-				</div>
-				<span class="list-item__title">山田 太郎 様</span>
-				<span class="list-item__subtitle">新郎側ゲスト</span>
-				<div class="expandable-content" style="padding-left:20px">
-					<div style="font-weight:bold">新郎との関係</div>
-					<div style="padding-left:30px">会社の上司</div>
-					<div style="font-weight:bold">あなたから見た新郎の血液型は？</div>
-					<div style="padding-left:30px">Ｂ型</div>
-					<div style="font-weight:bold">新郎を動物に例えると？</div>
-					<div style="padding-left:30px">未回答</div>
-				</div>
-			</ons-list-item>
-
-			<ons-list-item expandable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="guest2.png">
-				</div>
-				<span class="list-item__title">さちこ 様</span>
-				<span class="list-item__subtitle">新郎側ゲスト</span>
-				<div class="expandable-content" style="padding-left:20px">
-					<div style="font-weight:bold">新郎との関係</div>
-					<div style="padding-left:30px">会社の後輩</div>
-					<div style="font-weight:bold">あなたから見た新郎の血液型は？</div>
-					<div style="padding-left:30px">Ａ型</div>
-					<div style="font-weight:bold">新郎を動物に例えると？</div>
-					<div style="padding-left:30px">イヌ</div>
-				</div>
-			</ons-list-item>
-
-			<ons-list-item expandable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="guest3.png">
-				</div>
-				<span class="list-item__title">ひろし 様</span>
-				<span class="list-item__subtitle">新婦側ゲスト</span>
-				<div class="expandable-content" style="padding-left:20px">
-					<div style="font-weight:bold">新婦との関係</div>
-					<div style="padding-left:30px">大学のサークル仲間</div>
-					<div style="font-weight:bold">あなたから見た新婦の血液型は？</div>
-					<div style="padding-left:30px">Ａ型</div>
-					<div style="font-weight:bold">新婦がいかにも得意そうな料理は？</div>
-					<div style="padding-left:30px">肉じゃが</div>
-				</div>
-			</ons-list-item>
-
-			<ons-list-item expandable>
-				<div class="left">
-					<img class="list-item__thumbnail" src="guest4.png">
-				</div>
-				<span class="list-item__title">山本 洋子 様</span>
-				<span class="list-item__subtitle">新婦側ゲスト</span>
-				<div class="expandable-content" style="padding-left:20px">
-					<div style="font-weight:bold">新婦との関係</div>
-					<div style="padding-left:30px">会社の同期</div>
-					<div style="font-weight:bold">あなたから見た新婦の血液型は？</div>
-					<div style="padding-left:30px">ＡＢ型</div>
-					<div style="font-weight:bold">新婦がいかにも得意そうな料理は？</div>
-					<div style="padding-left:30px">ラーメン</div>
-				</div>
-			</ons-list-item>
-		</ons-list>
-
-	</ons-page>
-</template>
-
-<template id="xxxx.html">
-	<ons-page>
-		<ons-toolbar>
-			<div class="left"><ons-back-button></ons-back-button></div>
-			<div class="center">TEST</div>
-		</ons-toolbar>
-	</ons-page>
-</template>
-
-<script>
-
-	ons.disableAutoStyling()
-	var onsNav = document.querySelector("#nav");
-
-	// ブラウザの戻るボタン制御
-	history.pushState(null, null, null);
-	window.addEventListener("popstate", function (e) {
-		if (onsNav.pages.length > 1) {
-			onsNav.popPage();
-		}
-		history.pushState(null, null, null);
-	});
-
-</script>
+    <nav class="navbar bg-primary mb-3">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1"></span>
+            <div class="dropdown dropstart">
+                <button class="btn btn-outline-light" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16" style="position:relative;top:-1px;">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
+                            </svg>                            
+                            お問い合わせ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="max-width: 800px;">
+
+        <div class="text-center mb-5">
+            <img src="./img/logo.png" style="max-width: 200px;">
+        </div>
+
+        <p class="text-white">
+            サイトに関する説明文をここに記載します。
+            サイトに関する説明文をここに記載します。
+            サイトに関する説明文をここに記載します。
+            サイトに関する説明文をここに記載します。
+            サイトに関する説明文をここに記載します。
+            サイトに関する説明文をここに記載します。
+        </p>
+
+        <div class="text-center mb-5">
+            <img src="./img/top.png" style="max-width: 250px;">
+        </div>
+
+    </div>
+
+    <div class="container-fluid bg-light pt-3 pb-3">
+
+        <div class="row row-cols-1 g-4">
+            <div class="col">
+                <div class="card shadow mx-auto" style="max-width: 370px;">
+                    <img src="./img/image.png" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">ASICS</h5>
+                        <p class="card-text">
+                            リンク先に関する説明文をここに記載します。
+                            リンク先に関する説明文をここに記載します。
+                            リンク先に関する説明文をここに記載します。
+                            リンク先に関する説明文をここに記載します。
+                            リンク先に関する説明文をここに記載します。
+                        </p>
+                        <div class="text-end">
+                            <a href="#" class="btn btn-primary text-light">
+                                ログイン
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card shadow mx-auto" style="max-width: 370px;">
+                    <img src="./img/image.png" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">カロママプラス</h5>
+                        <p class="card-text">
+                            リンク先に関する説明文をここに記載します。
+                            リンク先に関する説明文をここに記載します。
+                            リンク先に関する説明文をここに記載します。
+                            リンク先に関する説明文をここに記載します。
+                            リンク先に関する説明文をここに記載します。
+                        </p>
+                        <div class="text-end">
+                            <a href="#" class="btn btn-primary text-light">
+                                ログイン
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-light">
+                <div class="modal-header">
+                    <h5 class="modal-title text-black"><strong>お問い合わせ</strong></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-black">
+                ああああ
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
